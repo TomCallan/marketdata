@@ -1,0 +1,2342 @@
+{
+  "AAVEUSD": {
+    "symbol": "AAVEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AAVE-USD",
+    "gateio": "AAVE_USDT",
+    "mexc": "AAVEUSDT",
+    "coinbase": "AAVE-USD"
+  },
+  "ADAUSD": {
+    "symbol": "ADAUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "ADA-USD",
+    "gateio": "ADA_USDT",
+    "mexc": "ADAUSDT",
+    "coinbase": "ADA-USD"
+  },
+  "AEROUSD": {
+    "symbol": "AEROUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AERO-USD",
+    "gateio": "AERO_USDT",
+    "mexc": "AEROUSDT",
+    "coinbase": "AERO-USD"
+  },
+  "ALGOUSD": {
+    "symbol": "ALGOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ALGO-USD",
+    "gateio": "ALGO_USDT",
+    "mexc": "ALGOUSDT",
+    "coinbase": "ALGO-USD"
+  },
+  "APEUSD": {
+    "symbol": "APEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "APE-USD",
+    "gateio": "APE_USDT",
+    "mexc": "APEUSDT",
+    "coinbase": "APE-USD"
+  },
+  "APTUSD": {
+    "symbol": "APTUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "APT-USD",
+    "gateio": "APT_USDT",
+    "mexc": "APTUSDT",
+    "coinbase": "APT-USD"
+  },
+  "ARBUSD": {
+    "symbol": "ARBUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ARB-USD",
+    "gateio": "ARB_USDT",
+    "mexc": "ARBUSDT",
+    "coinbase": "ARB-USD"
+  },
+  "ARCUSD": {
+    "symbol": "ARCUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ARC-USD",
+    "gateio": "ARC_USDT",
+    "mexc": "ARCUSDT",
+    "coinbase": "ARC-USD"
+  },
+  "ARUSD": {
+    "symbol": "ARUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AR-USD",
+    "gateio": "AR_USDT",
+    "mexc": "ARUSDT",
+    "coinbase": "AR-USD"
+  },
+  "ASTERUSD": {
+    "symbol": "ASTERUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ASTER-USD",
+    "gateio": "ASTER_USDT",
+    "mexc": "ASTERUSDT",
+    "coinbase": "ASTER-USD"
+  },
+  "ATOMUSD": {
+    "symbol": "ATOMUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ATOM-USD",
+    "gateio": "ATOM_USDT",
+    "mexc": "ATOMUSDT",
+    "coinbase": "ATOM-USD"
+  },
+  "AVAXUSD": {
+    "symbol": "AVAXUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AVAX-USD",
+    "gateio": "AVAX_USDT",
+    "mexc": "AVAXUSDT",
+    "coinbase": "AVAX-USD"
+  },
+  "AXSUSD": {
+    "symbol": "AXSUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AXS-USD",
+    "gateio": "AXS_USDT",
+    "mexc": "AXSUSDT",
+    "coinbase": "AXS-USD"
+  },
+  "BARDUSD": {
+    "symbol": "BARDUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BARD-USD",
+    "gateio": "BARD_USDT",
+    "mexc": "BARDUSDT",
+    "coinbase": "BARD-USD"
+  },
+  "BCHUSD": {
+    "symbol": "BCHUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "BCH-USD",
+    "gateio": "BCH_USDT",
+    "mexc": "BCHUSDT",
+    "coinbase": "BCH-USD"
+  },
+  "BEATUSD": {
+    "symbol": "BEATUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BEAT-USD",
+    "gateio": "BEAT_USDT",
+    "mexc": "BEATUSDT",
+    "coinbase": "BEAT-USD"
+  },
+  "BERAUSD": {
+    "symbol": "BERAUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BERA-USD",
+    "gateio": "BERA_USDT",
+    "mexc": "BERAUSDT",
+    "coinbase": "BERA-USD"
+  },
+  "BNBUSD": {
+    "symbol": "BNBUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "BNB-USD",
+    "gateio": "BNB_USDT",
+    "mexc": "BNBUSDT",
+    "coinbase": "BNB-USD"
+  },
+  "BSVUSD": {
+    "symbol": "BSVUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BSV-USD",
+    "gateio": "BSV_USDT",
+    "mexc": "BSVUSDT",
+    "coinbase": "BSV-USD"
+  },
+  "BTCUSD": {
+    "symbol": "BTCUSD",
+    "category": "crypto",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "BTC-USD",
+    "gateio": "BTC_USDT",
+    "mexc": "BTCUSDT",
+    "coinbase": "BTC-USD"
+  },
+  "CAKEUSD": {
+    "symbol": "CAKEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CAKE-USD",
+    "gateio": "CAKE_USDT",
+    "mexc": "CAKEUSDT",
+    "coinbase": "CAKE-USD"
+  },
+  "CCUSD": {
+    "symbol": "CCUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CC-USD",
+    "gateio": "CC_USDT",
+    "mexc": "CCUSDT",
+    "coinbase": "CC-USD"
+  },
+  "CHZUSD": {
+    "symbol": "CHZUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CHZ-USD",
+    "gateio": "CHZ_USDT",
+    "mexc": "CHZUSDT",
+    "coinbase": "CHZ-USD"
+  },
+  "CRVUSD": {
+    "symbol": "CRVUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CRV-USD",
+    "gateio": "CRV_USDT",
+    "mexc": "CRVUSDT",
+    "coinbase": "CRV-USD"
+  },
+  "DASHUSD": {
+    "symbol": "DASHUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "DASH-USD",
+    "gateio": "DASH_USDT",
+    "mexc": "DASHUSDT",
+    "coinbase": "DASH-USD"
+  },
+  "DOGEUSD": {
+    "symbol": "DOGEUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "DOGE-USD",
+    "gateio": "DOGE_USDT",
+    "mexc": "DOGEUSDT",
+    "coinbase": "DOGE-USD"
+  },
+  "DOTUSD": {
+    "symbol": "DOTUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "DOT-USD",
+    "gateio": "DOT_USDT",
+    "mexc": "DOTUSDT",
+    "coinbase": "DOT-USD"
+  },
+  "DYDXUSD": {
+    "symbol": "DYDXUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "DYDX-USD",
+    "gateio": "DYDX_USDT",
+    "mexc": "DYDXUSDT",
+    "coinbase": "DYDX-USD"
+  },
+  "EIGENUSD": {
+    "symbol": "EIGENUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "EIGEN-USD",
+    "gateio": "EIGEN_USDT",
+    "mexc": "EIGENUSDT",
+    "coinbase": "EIGEN-USD"
+  },
+  "ENAUSD": {
+    "symbol": "ENAUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ENA-USD",
+    "gateio": "ENA_USDT",
+    "mexc": "ENAUSDT",
+    "coinbase": "ENA-USD"
+  },
+  "ETCUSD": {
+    "symbol": "ETCUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ETC-USD",
+    "gateio": "ETC_USDT",
+    "mexc": "ETCUSDT",
+    "coinbase": "ETC-USD"
+  },
+  "ETHFIUSD": {
+    "symbol": "ETHFIUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ETHFI-USD",
+    "gateio": "ETHFI_USDT",
+    "mexc": "ETHFIUSDT",
+    "coinbase": "ETHFI-USD"
+  },
+  "ETHUSD": {
+    "symbol": "ETHUSD",
+    "category": "crypto",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "ETH-USD",
+    "gateio": "ETH_USDT",
+    "mexc": "ETHUSDT",
+    "coinbase": "ETH-USD"
+  },
+  "FARTCOINUSD": {
+    "symbol": "FARTCOINUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "FARTCOIN-USD",
+    "gateio": "FARTCOIN_USDT",
+    "mexc": "FARTCOINUSDT",
+    "coinbase": "FARTCOIN-USD"
+  },
+  "FETUSD": {
+    "symbol": "FETUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "FET-USD",
+    "gateio": "FET_USDT",
+    "mexc": "FETUSDT",
+    "coinbase": "FET-USD"
+  },
+  "FFUSD": {
+    "symbol": "FFUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "FF-USD",
+    "gateio": "FF_USDT",
+    "mexc": "FFUSDT",
+    "coinbase": "FF-USD"
+  },
+  "FILUSD": {
+    "symbol": "FILUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "FIL-USD",
+    "gateio": "FIL_USDT",
+    "mexc": "FILUSDT",
+    "coinbase": "FIL-USD"
+  },
+  "GRAMUSD": {
+    "symbol": "GRAMUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "GRAM-USD",
+    "gateio": "GRAM_USDT",
+    "mexc": "GRAMUSDT",
+    "coinbase": "GRAM-USD"
+  },
+  "GRASSUSD": {
+    "symbol": "GRASSUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "GRASS-USD",
+    "gateio": "GRASS_USDT",
+    "mexc": "GRASSUSDT",
+    "coinbase": "GRASS-USD"
+  },
+  "HBARUSD": {
+    "symbol": "HBARUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "HBAR-USD",
+    "gateio": "HBAR_USDT",
+    "mexc": "HBARUSDT",
+    "coinbase": "HBAR-USD"
+  },
+  "HUSD": {
+    "symbol": "HUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "H-USD",
+    "gateio": "H_USDT",
+    "mexc": "HUSDT",
+    "coinbase": "H-USD"
+  },
+  "HYPEUSD": {
+    "symbol": "HYPEUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "HYPE-USD",
+    "gateio": "HYPE_USDT",
+    "mexc": "HYPEUSDT",
+    "coinbase": "HYPE-USD"
+  },
+  "ICPUSD": {
+    "symbol": "ICPUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ICP-USD",
+    "gateio": "ICP_USDT",
+    "mexc": "ICPUSDT",
+    "coinbase": "ICP-USD"
+  },
+  "INJUSD": {
+    "symbol": "INJUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "INJ-USD",
+    "gateio": "INJ_USDT",
+    "mexc": "INJUSDT",
+    "coinbase": "INJ-USD"
+  },
+  "JTOUSD": {
+    "symbol": "JTOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "JTO-USD",
+    "gateio": "JTO_USDT",
+    "mexc": "JTOUSDT",
+    "coinbase": "JTO-USD"
+  },
+  "JUPUSD": {
+    "symbol": "JUPUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "JUP-USD",
+    "gateio": "JUP_USDT",
+    "mexc": "JUPUSDT",
+    "coinbase": "JUP-USD"
+  },
+  "KAITOUSD": {
+    "symbol": "KAITOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "KAITO-USD",
+    "gateio": "KAITO_USDT",
+    "mexc": "KAITOUSDT",
+    "coinbase": "KAITO-USD"
+  },
+  "KASUSD": {
+    "symbol": "KASUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "KAS-USD",
+    "gateio": "KAS_USDT",
+    "mexc": "KASUSDT",
+    "coinbase": "KAS-USD"
+  },
+  "KITEUSD": {
+    "symbol": "KITEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "KITE-USD",
+    "gateio": "KITE_USDT",
+    "mexc": "KITEUSDT",
+    "coinbase": "KITE-USD"
+  },
+  "LABUSD": {
+    "symbol": "LABUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LAB-USD",
+    "gateio": "LAB_USDT",
+    "mexc": "LABUSDT",
+    "coinbase": "LAB-USD"
+  },
+  "LDOUSD": {
+    "symbol": "LDOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LDO-USD",
+    "gateio": "LDO_USDT",
+    "mexc": "LDOUSDT",
+    "coinbase": "LDO-USD"
+  },
+  "LINEAUSD": {
+    "symbol": "LINEAUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LINEA-USD",
+    "gateio": "LINEA_USDT",
+    "mexc": "LINEAUSDT",
+    "coinbase": "LINEA-USD"
+  },
+  "LINKUSD": {
+    "symbol": "LINKUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LINK-USD",
+    "gateio": "LINK_USDT",
+    "mexc": "LINKUSDT",
+    "coinbase": "LINK-USD"
+  },
+  "LITUSD": {
+    "symbol": "LITUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LIT-USD",
+    "gateio": "LIT_USDT",
+    "mexc": "LITUSDT",
+    "coinbase": "LIT-USD"
+  },
+  "LTCUSD": {
+    "symbol": "LTCUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LTC-USD",
+    "gateio": "LTC_USDT",
+    "mexc": "LTCUSDT",
+    "coinbase": "LTC-USD"
+  },
+  "MONUSD": {
+    "symbol": "MONUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MON-USD",
+    "gateio": "MON_USDT",
+    "mexc": "MONUSDT",
+    "coinbase": "MON-USD"
+  },
+  "MORPHOUSD": {
+    "symbol": "MORPHOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MORPHO-USD",
+    "gateio": "MORPHO_USDT",
+    "mexc": "MORPHOUSDT",
+    "coinbase": "MORPHO-USD"
+  },
+  "MUSD": {
+    "symbol": "MUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "M-USD",
+    "gateio": "M_USDT",
+    "mexc": "MUSDT",
+    "coinbase": "M-USD"
+  },
+  "NEARUSD": {
+    "symbol": "NEARUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NEAR-USD",
+    "gateio": "NEAR_USDT",
+    "mexc": "NEARUSDT",
+    "coinbase": "NEAR-USD"
+  },
+  "ONDOUSD": {
+    "symbol": "ONDOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ONDO-USD",
+    "gateio": "ONDO_USDT",
+    "mexc": "ONDOUSDT",
+    "coinbase": "ONDO-USD"
+  },
+  "OPUSD": {
+    "symbol": "OPUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "OP-USD",
+    "gateio": "OP_USDT",
+    "mexc": "OPUSDT",
+    "coinbase": "OP-USD"
+  },
+  "ORDIUSD": {
+    "symbol": "ORDIUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ORDI-USD",
+    "gateio": "ORDI_USDT",
+    "mexc": "ORDIUSDT",
+    "coinbase": "ORDI-USD"
+  },
+  "PENDLEUSD": {
+    "symbol": "PENDLEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PENDLE-USD",
+    "gateio": "PENDLE_USDT",
+    "mexc": "PENDLEUSDT",
+    "coinbase": "PENDLE-USD"
+  },
+  "PENGUUSD": {
+    "symbol": "PENGUUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PENGU-USD",
+    "gateio": "PENGU_USDT",
+    "mexc": "PENGUUSDT",
+    "coinbase": "PENGU-USD"
+  },
+  "PEPEUSD": {
+    "symbol": "PEPEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PEPE-USD",
+    "gateio": "PEPE_USDT",
+    "mexc": "PEPEUSDT",
+    "coinbase": "PEPE-USD"
+  },
+  "PIEVERSEUSD": {
+    "symbol": "PIEVERSEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PIEVERSE-USD",
+    "gateio": "PIEVERSE_USDT",
+    "mexc": "PIEVERSEUSDT",
+    "coinbase": "PIEVERSE-USD"
+  },
+  "POLUSD": {
+    "symbol": "POLUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "POL-USD",
+    "gateio": "POL_USDT",
+    "mexc": "POLUSDT",
+    "coinbase": "POL-USD"
+  },
+  "PUMPUSD": {
+    "symbol": "PUMPUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PUMP-USD",
+    "gateio": "PUMP_USDT",
+    "mexc": "PUMPUSDT",
+    "coinbase": "PUMP-USD"
+  },
+  "PYTHUSD": {
+    "symbol": "PYTHUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PYTH-USD",
+    "gateio": "PYTH_USDT",
+    "mexc": "PYTHUSDT",
+    "coinbase": "PYTH-USD"
+  },
+  "QNTUSD": {
+    "symbol": "QNTUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "QNT-USD",
+    "gateio": "QNT_USDT",
+    "mexc": "QNTUSDT",
+    "coinbase": "QNT-USD"
+  },
+  "RAVEUSD": {
+    "symbol": "RAVEUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RAVE-USD",
+    "gateio": "RAVE_USDT",
+    "mexc": "RAVEUSDT",
+    "coinbase": "RAVE-USD"
+  },
+  "RENDERUSD": {
+    "symbol": "RENDERUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RENDER-USD",
+    "gateio": "RENDER_USDT",
+    "mexc": "RENDERUSDT",
+    "coinbase": "RENDER-USD"
+  },
+  "REUSD": {
+    "symbol": "REUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RE-USD",
+    "gateio": "RE_USDT",
+    "mexc": "REUSDT",
+    "coinbase": "RE-USD"
+  },
+  "SANDUSD": {
+    "symbol": "SANDUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SAND-USD",
+    "gateio": "SAND_USDT",
+    "mexc": "SANDUSDT",
+    "coinbase": "SAND-USD"
+  },
+  "SEIUSD": {
+    "symbol": "SEIUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SEI-USD",
+    "gateio": "SEI_USDT",
+    "mexc": "SEIUSDT",
+    "coinbase": "SEI-USD"
+  },
+  "SHIBUSD": {
+    "symbol": "SHIBUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SHIB-USD",
+    "gateio": "SHIB_USDT",
+    "mexc": "SHIBUSDT",
+    "coinbase": "SHIB-USD"
+  },
+  "SKYAIUSD": {
+    "symbol": "SKYAIUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SKYAI-USD",
+    "gateio": "SKYAI_USDT",
+    "mexc": "SKYAIUSDT",
+    "coinbase": "SKYAI-USD"
+  },
+  "SKYUSD": {
+    "symbol": "SKYUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SKY-USD",
+    "gateio": "SKY_USDT",
+    "mexc": "SKYUSDT",
+    "coinbase": "SKY-USD"
+  },
+  "SLXUSD": {
+    "symbol": "SLXUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SLX-USD",
+    "gateio": "SLX_USDT",
+    "mexc": "SLXUSDT",
+    "coinbase": "SLX-USD"
+  },
+  "SOLUSD": {
+    "symbol": "SOLUSD",
+    "category": "crypto",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "SOL-USD",
+    "gateio": "SOL_USDT",
+    "mexc": "SOLUSDT",
+    "coinbase": "SOL-USD"
+  },
+  "STRKUSD": {
+    "symbol": "STRKUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "STRK-USD",
+    "gateio": "STRK_USDT",
+    "mexc": "STRKUSDT",
+    "coinbase": "STRK-USD"
+  },
+  "SUIUSD": {
+    "symbol": "SUIUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "SUI-USD",
+    "gateio": "SUI_USDT",
+    "mexc": "SUIUSDT",
+    "coinbase": "SUI-USD"
+  },
+  "SUNUSD": {
+    "symbol": "SUNUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SUN-USD",
+    "gateio": "SUN_USDT",
+    "mexc": "SUNUSDT",
+    "coinbase": "SUN-USD"
+  },
+  "TACUSD": {
+    "symbol": "TACUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TAC-USD",
+    "gateio": "TAC_USDT",
+    "mexc": "TACUSDT",
+    "coinbase": "TAC-USD"
+  },
+  "TAOUSD": {
+    "symbol": "TAOUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TAO-USD",
+    "gateio": "TAO_USDT",
+    "mexc": "TAOUSDT",
+    "coinbase": "TAO-USD"
+  },
+  "TIAUSD": {
+    "symbol": "TIAUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TIA-USD",
+    "gateio": "TIA_USDT",
+    "mexc": "TIAUSDT",
+    "coinbase": "TIA-USD"
+  },
+  "TRUMPUSD": {
+    "symbol": "TRUMPUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TRUMP-USD",
+    "gateio": "TRUMP_USDT",
+    "mexc": "TRUMPUSDT",
+    "coinbase": "TRUMP-USD"
+  },
+  "TRXUSD": {
+    "symbol": "TRXUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TRX-USD",
+    "gateio": "TRX_USDT",
+    "mexc": "TRXUSDT",
+    "coinbase": "TRX-USD"
+  },
+  "UBUSD": {
+    "symbol": "UBUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "UB-USD",
+    "gateio": "UB_USDT",
+    "mexc": "UBUSDT",
+    "coinbase": "UB-USD"
+  },
+  "UNIUSD": {
+    "symbol": "UNIUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "UNI-USD",
+    "gateio": "UNI_USDT",
+    "mexc": "UNIUSDT",
+    "coinbase": "UNI-USD"
+  },
+  "VELVETUSD": {
+    "symbol": "VELVETUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "VELVET-USD",
+    "gateio": "VELVET_USDT",
+    "mexc": "VELVETUSDT",
+    "coinbase": "VELVET-USD"
+  },
+  "VETUSD": {
+    "symbol": "VETUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "VET-USD",
+    "gateio": "VET_USDT",
+    "mexc": "VETUSDT",
+    "coinbase": "VET-USD"
+  },
+  "VIRTUALUSD": {
+    "symbol": "VIRTUALUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "VIRTUAL-USD",
+    "gateio": "VIRTUAL_USDT",
+    "mexc": "VIRTUALUSDT",
+    "coinbase": "VIRTUAL-USD"
+  },
+  "VVVUSD": {
+    "symbol": "VVVUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "VVV-USD",
+    "gateio": "VVV_USDT",
+    "mexc": "VVVUSDT",
+    "coinbase": "VVV-USD"
+  },
+  "WIFUSD": {
+    "symbol": "WIFUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "WIF-USD",
+    "gateio": "WIF_USDT",
+    "mexc": "WIFUSDT",
+    "coinbase": "WIF-USD"
+  },
+  "WLDUSD": {
+    "symbol": "WLDUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "WLD-USD",
+    "gateio": "WLD_USDT",
+    "mexc": "WLDUSDT",
+    "coinbase": "WLD-USD"
+  },
+  "WLFIUSD": {
+    "symbol": "WLFIUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "WLFI-USD",
+    "gateio": "WLFI_USDT",
+    "mexc": "WLFIUSDT",
+    "coinbase": "WLFI-USD"
+  },
+  "XAUT": {
+    "symbol": "XAUT",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "XAUT-USD",
+    "gateio": "XAUT_USDT",
+    "mexc": "XAUTUSDT",
+    "coinbase": "XAUT-USD"
+  },
+  "XLMUSD": {
+    "symbol": "XLMUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "XLM-USD",
+    "gateio": "XLM_USDT",
+    "mexc": "XLMUSDT",
+    "coinbase": "XLM-USD"
+  },
+  "XMRUSD": {
+    "symbol": "XMRUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "XMR-USD",
+    "gateio": "XMR_USDT",
+    "mexc": "XMRUSDT",
+    "coinbase": "XMR-USD"
+  },
+  "XPLUSD": {
+    "symbol": "XPLUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "XPL-USD",
+    "gateio": "XPL_USDT",
+    "mexc": "XPLUSDT",
+    "coinbase": "XPL-USD"
+  },
+  "XRPUSD": {
+    "symbol": "XRPUSD",
+    "category": "crypto",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "XRP-USD",
+    "gateio": "XRP_USDT",
+    "mexc": "XRPUSDT",
+    "coinbase": "XRP-USD"
+  },
+  "ZECUSD": {
+    "symbol": "ZECUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ZEC-USD",
+    "gateio": "ZEC_USDT",
+    "mexc": "ZECUSDT",
+    "coinbase": "ZEC-USD"
+  },
+  "ZROUSD": {
+    "symbol": "ZROUSD",
+    "category": "crypto",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ZRO-USD",
+    "gateio": "ZRO_USDT",
+    "mexc": "ZROUSDT",
+    "coinbase": "ZRO-USD"
+  },
+  "AAOI": {
+    "symbol": "AAOI",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AAOI",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AAPL": {
+    "symbol": "AAPL",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AAPL",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "ADBE": {
+    "symbol": "ADBE",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ADBE",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AMAT": {
+    "symbol": "AMAT",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AMAT",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AMD": {
+    "symbol": "AMD",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AMD",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AMZN": {
+    "symbol": "AMZN",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AMZN",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "ARM": {
+    "symbol": "ARM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ARM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "ASML": {
+    "symbol": "ASML",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ASML",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AVGO": {
+    "symbol": "AVGO",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AVGO",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AXTI": {
+    "symbol": "AXTI",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "AXTI",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "BABA": {
+    "symbol": "BABA",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BABA",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "BE": {
+    "symbol": "BE",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BE",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "BMNR": {
+    "symbol": "BMNR",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BMNR",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "BRKB": {
+    "symbol": "BRKB",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BRK-B",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "BX": {
+    "symbol": "BX",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "BX",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "COHR": {
+    "symbol": "COHR",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "COHR",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "COIN": {
+    "symbol": "COIN",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "COIN",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "COST": {
+    "symbol": "COST",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "COST",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CRCL": {
+    "symbol": "CRCL",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CRCL",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CRDO": {
+    "symbol": "CRDO",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CRDO",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CRM": {
+    "symbol": "CRM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CRM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CRWD": {
+    "symbol": "CRWD",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CRWD",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CRWV": {
+    "symbol": "CRWV",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CRWV",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CSCO": {
+    "symbol": "CSCO",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "CSCO",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "DELL": {
+    "symbol": "DELL",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "DELL",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "DIS": {
+    "symbol": "DIS",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "DIS",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "DKNG": {
+    "symbol": "DKNG",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "DKNG",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "FLNC": {
+    "symbol": "FLNC",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "FLNC",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GLW": {
+    "symbol": "GLW",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "GLW",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GME": {
+    "symbol": "GME",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "GME",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GOOGL": {
+    "symbol": "GOOGL",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "GOOGL",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "HD": {
+    "symbol": "HD",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "HD",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "HIMS": {
+    "symbol": "HIMS",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "HIMS",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "HOOD": {
+    "symbol": "HOOD",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "HOOD",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "HPE": {
+    "symbol": "HPE",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "HPE",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "HYUNDAI": {
+    "symbol": "HYUNDAI",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "005380.KS",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "IBM": {
+    "symbol": "IBM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "IBM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "INTC": {
+    "symbol": "INTC",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "INTC",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "IREN": {
+    "symbol": "IREN",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "IREN",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "JPM": {
+    "symbol": "JPM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "JPM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "LITE": {
+    "symbol": "LITE",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LITE",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "LLY": {
+    "symbol": "LLY",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LLY",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "LUNR": {
+    "symbol": "LUNR",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "LUNR",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "META": {
+    "symbol": "META",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "META",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "MP": {
+    "symbol": "MP",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MP",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "MRVL": {
+    "symbol": "MRVL",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MRVL",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "MSFT": {
+    "symbol": "MSFT",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MSFT",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "MSTR": {
+    "symbol": "MSTR",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MSTR",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "MU": {
+    "symbol": "MU",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "MU",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NBIS": {
+    "symbol": "NBIS",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NBIS",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NFLX": {
+    "symbol": "NFLX",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NFLX",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NOK": {
+    "symbol": "NOK",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NOK",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NOW": {
+    "symbol": "NOW",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NOW",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NVDA": {
+    "symbol": "NVDA",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NVDA",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NVO": {
+    "symbol": "NVO",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "NVO",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "OKLO": {
+    "symbol": "OKLO",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "OKLO",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "ONDS": {
+    "symbol": "ONDS",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ONDS",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "ORCL": {
+    "symbol": "ORCL",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ORCL",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "PLTR": {
+    "symbol": "PLTR",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "PLTR",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "QCOM": {
+    "symbol": "QCOM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "QCOM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "RDDT": {
+    "symbol": "RDDT",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RDDT",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "RDW": {
+    "symbol": "RDW",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RDW",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "RGTI": {
+    "symbol": "RGTI",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RGTI",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "RIVN": {
+    "symbol": "RIVN",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RIVN",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "RKLB": {
+    "symbol": "RKLB",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "RKLB",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "SAMSUNG": {
+    "symbol": "SAMSUNG",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "005930.KS",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "SNDK": {
+    "symbol": "SNDK",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SNDK",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "SPCX": {
+    "symbol": "SPCX",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "SPCX",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "TSLA": {
+    "symbol": "TSLA",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TSLA",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "TSM": {
+    "symbol": "TSM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "TSM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "UBER": {
+    "symbol": "UBER",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "UBER",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "V": {
+    "symbol": "V",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "V",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "VRT": {
+    "symbol": "VRT",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "VRT",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "WDC": {
+    "symbol": "WDC",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "WDC",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "WMT": {
+    "symbol": "WMT",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "WMT",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "XOM": {
+    "symbol": "XOM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "XOM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "ZM": {
+    "symbol": "ZM",
+    "category": "stocks",
+    "max_leverage_long": "2x",
+    "max_leverage_short": "2x",
+    "yfinance": "ZM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CL": {
+    "symbol": "CL",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "CL=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "COPPER": {
+    "symbol": "COPPER",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "HG=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NATGAS": {
+    "symbol": "NATGAS",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "NG=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "XAG": {
+    "symbol": "XAG",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "SI=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "XAU": {
+    "symbol": "XAU",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "GC=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "XPD": {
+    "symbol": "XPD",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "PA=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "XPT": {
+    "symbol": "XPT",
+    "category": "commodities",
+    "max_leverage_long": "3x",
+    "max_leverage_short": "2x",
+    "yfinance": "PL=F",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EWJ": {
+    "symbol": "EWJ",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "EWJ",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EWY": {
+    "symbol": "EWY",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "EWY",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EWZ": {
+    "symbol": "EWZ",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "EWZ",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "IWM": {
+    "symbol": "IWM",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "IWM",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "QQQ": {
+    "symbol": "QQQ",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "QQQ",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "SPY": {
+    "symbol": "SPY",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "SPY",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "STXX": {
+    "symbol": "STXX",
+    "category": "indices",
+    "max_leverage_long": "6x",
+    "max_leverage_short": "5x",
+    "yfinance": "EZU",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURUSD": {
+    "symbol": "EURUSD",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "EURUSD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDJPY": {
+    "symbol": "USDJPY",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "USDJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GBPUSD": {
+    "symbol": "GBPUSD",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "GBPUSD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDCHF": {
+    "symbol": "USDCHF",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "USDCHF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AUDUSD": {
+    "symbol": "AUDUSD",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "AUDUSD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NZDUSD": {
+    "symbol": "NZDUSD",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "NZDUSD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDCAD": {
+    "symbol": "USDCAD",
+    "category": "forex",
+    "max_leverage_long": "50x",
+    "max_leverage_short": "30x",
+    "yfinance": "USDCAD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AUDCAD": {
+    "symbol": "AUDCAD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "AUDCAD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AUDCHF": {
+    "symbol": "AUDCHF",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "AUDCHF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AUDJPY": {
+    "symbol": "AUDJPY",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "AUDJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "AUDNZD": {
+    "symbol": "AUDNZD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "AUDNZD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CADCHF": {
+    "symbol": "CADCHF",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "CADCHF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CADJPY": {
+    "symbol": "CADJPY",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "CADJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "CHFJPY": {
+    "symbol": "CHFJPY",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "CHFJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURAUD": {
+    "symbol": "EURAUD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "EURAUD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURCAD": {
+    "symbol": "EURCAD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "EURCAD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURCHF": {
+    "symbol": "EURCHF",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "EURCHF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURGBP": {
+    "symbol": "EURGBP",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "EURGBP=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURJPY": {
+    "symbol": "EURJPY",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "EURJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "EURNZD": {
+    "symbol": "EURNZD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "EURNZD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GBPAUD": {
+    "symbol": "GBPAUD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "GBPAUD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GBPCAD": {
+    "symbol": "GBPCAD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "GBPCAD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GBPCHF": {
+    "symbol": "GBPCHF",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "GBPCHF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GBPJPY": {
+    "symbol": "GBPJPY",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "GBPJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "GBPNZD": {
+    "symbol": "GBPNZD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "GBPNZD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NZDCAD": {
+    "symbol": "NZDCAD",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "NZDCAD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NZDCHF": {
+    "symbol": "NZDCHF",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "NZDCHF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "NZDJPY": {
+    "symbol": "NZDJPY",
+    "category": "forex",
+    "max_leverage_long": "30x",
+    "max_leverage_short": "20x",
+    "yfinance": "NZDJPY=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDCNH": {
+    "symbol": "USDCNH",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDCNH=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDCZK": {
+    "symbol": "USDCZK",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDCZK=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDDKK": {
+    "symbol": "USDDKK",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDDKK=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDHKD": {
+    "symbol": "USDHKD",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDHKD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDHUF": {
+    "symbol": "USDHUF",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDHUF=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDMXN": {
+    "symbol": "USDMXN",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDMXN=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDNOK": {
+    "symbol": "USDNOK",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDNOK=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDPLN": {
+    "symbol": "USDPLN",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDPLN=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDSGD": {
+    "symbol": "USDSGD",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDSGD=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDSEK": {
+    "symbol": "USDSEK",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDSEK=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  },
+  "USDZAR": {
+    "symbol": "USDZAR",
+    "category": "forex",
+    "max_leverage_long": "20x",
+    "max_leverage_short": "10x",
+    "yfinance": "USDZAR=X",
+    "gateio": "",
+    "mexc": "",
+    "coinbase": ""
+  }
+}

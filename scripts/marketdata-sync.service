@@ -1,0 +1,13 @@
+[Unit]
+Description=MarketData Hourly Incremental Sync Service
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=C:\Users\TomCa\Documents\velotrade
+ExecStart=python -m marketdata.data sync --timeframe 1h
+StandardOutput=append:C:\Users\TomCa\Documents\velotrade/logs/cron_sync.log
+StandardError=append:C:\Users\TomCa\Documents\velotrade/logs/cron_sync.log
+
+[Install]
+WantedBy=multi-user.target

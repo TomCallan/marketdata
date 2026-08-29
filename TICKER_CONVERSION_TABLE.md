@@ -1,0 +1,264 @@
+# Ticker Conversion Table
+
+This table defines the bidirectional mappings between internal broker symbols and external market data providers.
+
+**Total Tradeable Instruments**: 234
+
+## Crypto (104 symbols)
+
+| Internal Symbol | Max Leverage (L/S) | Yahoo Finance | Gate.io Pair | MEXC Symbol | Coinbase Product |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **AAVEUSD** | 2x/2x | `AAVE-USD` | `AAVE_USDT` | `AAVEUSDT` | `AAVE-USD` |
+| **ADAUSD** | 3x/2x | `ADA-USD` | `ADA_USDT` | `ADAUSDT` | `ADA-USD` |
+| **AEROUSD** | 2x/2x | `AERO-USD` | `AERO_USDT` | `AEROUSDT` | `AERO-USD` |
+| **ALGOUSD** | 2x/2x | `ALGO-USD` | `ALGO_USDT` | `ALGOUSDT` | `ALGO-USD` |
+| **APEUSD** | 2x/2x | `APE-USD` | `APE_USDT` | `APEUSDT` | `APE-USD` |
+| **APTUSD** | 2x/2x | `APT-USD` | `APT_USDT` | `APTUSDT` | `APT-USD` |
+| **ARBUSD** | 2x/2x | `ARB-USD` | `ARB_USDT` | `ARBUSDT` | `ARB-USD` |
+| **ARCUSD** | 2x/2x | `ARC-USD` | `ARC_USDT` | `ARCUSDT` | `ARC-USD` |
+| **ARUSD** | 2x/2x | `AR-USD` | `AR_USDT` | `ARUSDT` | `AR-USD` |
+| **ASTERUSD** | 2x/2x | `ASTER-USD` | `ASTER_USDT` | `ASTERUSDT` | `ASTER-USD` |
+| **ATOMUSD** | 2x/2x | `ATOM-USD` | `ATOM_USDT` | `ATOMUSDT` | `ATOM-USD` |
+| **AVAXUSD** | 2x/2x | `AVAX-USD` | `AVAX_USDT` | `AVAXUSDT` | `AVAX-USD` |
+| **AXSUSD** | 2x/2x | `AXS-USD` | `AXS_USDT` | `AXSUSDT` | `AXS-USD` |
+| **BARDUSD** | 2x/2x | `BARD-USD` | `BARD_USDT` | `BARDUSDT` | `BARD-USD` |
+| **BCHUSD** | 3x/2x | `BCH-USD` | `BCH_USDT` | `BCHUSDT` | `BCH-USD` |
+| **BEATUSD** | 2x/2x | `BEAT-USD` | `BEAT_USDT` | `BEATUSDT` | `BEAT-USD` |
+| **BERAUSD** | 2x/2x | `BERA-USD` | `BERA_USDT` | `BERAUSDT` | `BERA-USD` |
+| **BNBUSD** | 3x/2x | `BNB-USD` | `BNB_USDT` | `BNBUSDT` | `BNB-USD` |
+| **BSVUSD** | 2x/2x | `BSV-USD` | `BSV_USDT` | `BSVUSDT` | `BSV-USD` |
+| **BTCUSD** | 6x/5x | `BTC-USD` | `BTC_USDT` | `BTCUSDT` | `BTC-USD` |
+| **CAKEUSD** | 2x/2x | `CAKE-USD` | `CAKE_USDT` | `CAKEUSDT` | `CAKE-USD` |
+| **CCUSD** | 2x/2x | `CC-USD` | `CC_USDT` | `CCUSDT` | `CC-USD` |
+| **CHZUSD** | 2x/2x | `CHZ-USD` | `CHZ_USDT` | `CHZUSDT` | `CHZ-USD` |
+| **CRVUSD** | 2x/2x | `CRV-USD` | `CRV_USDT` | `CRVUSDT` | `CRV-USD` |
+| **DASHUSD** | 2x/2x | `DASH-USD` | `DASH_USDT` | `DASHUSDT` | `DASH-USD` |
+| **DOGEUSD** | 3x/2x | `DOGE-USD` | `DOGE_USDT` | `DOGEUSDT` | `DOGE-USD` |
+| **DOTUSD** | 2x/2x | `DOT-USD` | `DOT_USDT` | `DOTUSDT` | `DOT-USD` |
+| **DYDXUSD** | 2x/2x | `DYDX-USD` | `DYDX_USDT` | `DYDXUSDT` | `DYDX-USD` |
+| **EIGENUSD** | 2x/2x | `EIGEN-USD` | `EIGEN_USDT` | `EIGENUSDT` | `EIGEN-USD` |
+| **ENAUSD** | 2x/2x | `ENA-USD` | `ENA_USDT` | `ENAUSDT` | `ENA-USD` |
+| **ETCUSD** | 2x/2x | `ETC-USD` | `ETC_USDT` | `ETCUSDT` | `ETC-USD` |
+| **ETHFIUSD** | 2x/2x | `ETHFI-USD` | `ETHFI_USDT` | `ETHFIUSDT` | `ETHFI-USD` |
+| **ETHUSD** | 6x/5x | `ETH-USD` | `ETH_USDT` | `ETHUSDT` | `ETH-USD` |
+| **FARTCOINUSD** | 2x/2x | `FARTCOIN-USD` | `FARTCOIN_USDT` | `FARTCOINUSDT` | `FARTCOIN-USD` |
+| **FETUSD** | 2x/2x | `FET-USD` | `FET_USDT` | `FETUSDT` | `FET-USD` |
+| **FFUSD** | 2x/2x | `FF-USD` | `FF_USDT` | `FFUSDT` | `FF-USD` |
+| **FILUSD** | 2x/2x | `FIL-USD` | `FIL_USDT` | `FILUSDT` | `FIL-USD` |
+| **GRAMUSD** | 2x/2x | `GRAM-USD` | `GRAM_USDT` | `GRAMUSDT` | `GRAM-USD` |
+| **GRASSUSD** | 2x/2x | `GRASS-USD` | `GRASS_USDT` | `GRASSUSDT` | `GRASS-USD` |
+| **HBARUSD** | 2x/2x | `HBAR-USD` | `HBAR_USDT` | `HBARUSDT` | `HBAR-USD` |
+| **HUSD** | 2x/2x | `H-USD` | `H_USDT` | `HUSDT` | `H-USD` |
+| **HYPEUSD** | 3x/2x | `HYPE-USD` | `HYPE_USDT` | `HYPEUSDT` | `HYPE-USD` |
+| **ICPUSD** | 2x/2x | `ICP-USD` | `ICP_USDT` | `ICPUSDT` | `ICP-USD` |
+| **INJUSD** | 2x/2x | `INJ-USD` | `INJ_USDT` | `INJUSDT` | `INJ-USD` |
+| **JTOUSD** | 2x/2x | `JTO-USD` | `JTO_USDT` | `JTOUSDT` | `JTO-USD` |
+| **JUPUSD** | 2x/2x | `JUP-USD` | `JUP_USDT` | `JUPUSDT` | `JUP-USD` |
+| **KAITOUSD** | 2x/2x | `KAITO-USD` | `KAITO_USDT` | `KAITOUSDT` | `KAITO-USD` |
+| **KASUSD** | 2x/2x | `KAS-USD` | `KAS_USDT` | `KASUSDT` | `KAS-USD` |
+| **KITEUSD** | 2x/2x | `KITE-USD` | `KITE_USDT` | `KITEUSDT` | `KITE-USD` |
+| **LABUSD** | 2x/2x | `LAB-USD` | `LAB_USDT` | `LABUSDT` | `LAB-USD` |
+| **LDOUSD** | 2x/2x | `LDO-USD` | `LDO_USDT` | `LDOUSDT` | `LDO-USD` |
+| **LINEAUSD** | 2x/2x | `LINEA-USD` | `LINEA_USDT` | `LINEAUSDT` | `LINEA-USD` |
+| **LINKUSD** | 2x/2x | `LINK-USD` | `LINK_USDT` | `LINKUSDT` | `LINK-USD` |
+| **LITUSD** | 2x/2x | `LIT-USD` | `LIT_USDT` | `LITUSDT` | `LIT-USD` |
+| **LTCUSD** | 2x/2x | `LTC-USD` | `LTC_USDT` | `LTCUSDT` | `LTC-USD` |
+| **MONUSD** | 2x/2x | `MON-USD` | `MON_USDT` | `MONUSDT` | `MON-USD` |
+| **MORPHOUSD** | 2x/2x | `MORPHO-USD` | `MORPHO_USDT` | `MORPHOUSDT` | `MORPHO-USD` |
+| **MUSD** | 2x/2x | `M-USD` | `M_USDT` | `MUSDT` | `M-USD` |
+| **NEARUSD** | 2x/2x | `NEAR-USD` | `NEAR_USDT` | `NEARUSDT` | `NEAR-USD` |
+| **ONDOUSD** | 2x/2x | `ONDO-USD` | `ONDO_USDT` | `ONDOUSDT` | `ONDO-USD` |
+| **OPUSD** | 2x/2x | `OP-USD` | `OP_USDT` | `OPUSDT` | `OP-USD` |
+| **ORDIUSD** | 2x/2x | `ORDI-USD` | `ORDI_USDT` | `ORDIUSDT` | `ORDI-USD` |
+| **PENDLEUSD** | 2x/2x | `PENDLE-USD` | `PENDLE_USDT` | `PENDLEUSDT` | `PENDLE-USD` |
+| **PENGUUSD** | 2x/2x | `PENGU-USD` | `PENGU_USDT` | `PENGUUSDT` | `PENGU-USD` |
+| **PEPEUSD** | 2x/2x | `PEPE-USD` | `PEPE_USDT` | `PEPEUSDT` | `PEPE-USD` |
+| **PIEVERSEUSD** | 2x/2x | `PIEVERSE-USD` | `PIEVERSE_USDT` | `PIEVERSEUSDT` | `PIEVERSE-USD` |
+| **POLUSD** | 2x/2x | `POL-USD` | `POL_USDT` | `POLUSDT` | `POL-USD` |
+| **PUMPUSD** | 2x/2x | `PUMP-USD` | `PUMP_USDT` | `PUMPUSDT` | `PUMP-USD` |
+| **PYTHUSD** | 2x/2x | `PYTH-USD` | `PYTH_USDT` | `PYTHUSDT` | `PYTH-USD` |
+| **QNTUSD** | 2x/2x | `QNT-USD` | `QNT_USDT` | `QNTUSDT` | `QNT-USD` |
+| **RAVEUSD** | 2x/2x | `RAVE-USD` | `RAVE_USDT` | `RAVEUSDT` | `RAVE-USD` |
+| **RENDERUSD** | 2x/2x | `RENDER-USD` | `RENDER_USDT` | `RENDERUSDT` | `RENDER-USD` |
+| **REUSD** | 2x/2x | `RE-USD` | `RE_USDT` | `REUSDT` | `RE-USD` |
+| **SANDUSD** | 2x/2x | `SAND-USD` | `SAND_USDT` | `SANDUSDT` | `SAND-USD` |
+| **SEIUSD** | 2x/2x | `SEI-USD` | `SEI_USDT` | `SEIUSDT` | `SEI-USD` |
+| **SHIBUSD** | 2x/2x | `SHIB-USD` | `SHIB_USDT` | `SHIBUSDT` | `SHIB-USD` |
+| **SKYAIUSD** | 2x/2x | `SKYAI-USD` | `SKYAI_USDT` | `SKYAIUSDT` | `SKYAI-USD` |
+| **SKYUSD** | 2x/2x | `SKY-USD` | `SKY_USDT` | `SKYUSDT` | `SKY-USD` |
+| **SLXUSD** | 2x/2x | `SLX-USD` | `SLX_USDT` | `SLXUSDT` | `SLX-USD` |
+| **SOLUSD** | 6x/5x | `SOL-USD` | `SOL_USDT` | `SOLUSDT` | `SOL-USD` |
+| **STRKUSD** | 2x/2x | `STRK-USD` | `STRK_USDT` | `STRKUSDT` | `STRK-USD` |
+| **SUIUSD** | 3x/2x | `SUI-USD` | `SUI_USDT` | `SUIUSDT` | `SUI-USD` |
+| **SUNUSD** | 2x/2x | `SUN-USD` | `SUN_USDT` | `SUNUSDT` | `SUN-USD` |
+| **TACUSD** | 2x/2x | `TAC-USD` | `TAC_USDT` | `TACUSDT` | `TAC-USD` |
+| **TAOUSD** | 2x/2x | `TAO-USD` | `TAO_USDT` | `TAOUSDT` | `TAO-USD` |
+| **TIAUSD** | 2x/2x | `TIA-USD` | `TIA_USDT` | `TIAUSDT` | `TIA-USD` |
+| **TRUMPUSD** | 2x/2x | `TRUMP-USD` | `TRUMP_USDT` | `TRUMPUSDT` | `TRUMP-USD` |
+| **TRXUSD** | 2x/2x | `TRX-USD` | `TRX_USDT` | `TRXUSDT` | `TRX-USD` |
+| **UBUSD** | 2x/2x | `UB-USD` | `UB_USDT` | `UBUSDT` | `UB-USD` |
+| **UNIUSD** | 2x/2x | `UNI-USD` | `UNI_USDT` | `UNIUSDT` | `UNI-USD` |
+| **VELVETUSD** | 2x/2x | `VELVET-USD` | `VELVET_USDT` | `VELVETUSDT` | `VELVET-USD` |
+| **VETUSD** | 2x/2x | `VET-USD` | `VET_USDT` | `VETUSDT` | `VET-USD` |
+| **VIRTUALUSD** | 2x/2x | `VIRTUAL-USD` | `VIRTUAL_USDT` | `VIRTUALUSDT` | `VIRTUAL-USD` |
+| **VVVUSD** | 2x/2x | `VVV-USD` | `VVV_USDT` | `VVVUSDT` | `VVV-USD` |
+| **WIFUSD** | 2x/2x | `WIF-USD` | `WIF_USDT` | `WIFUSDT` | `WIF-USD` |
+| **WLDUSD** | 2x/2x | `WLD-USD` | `WLD_USDT` | `WLDUSDT` | `WLD-USD` |
+| **WLFIUSD** | 2x/2x | `WLFI-USD` | `WLFI_USDT` | `WLFIUSDT` | `WLFI-USD` |
+| **XAUT** | 3x/2x | `XAUT-USD` | `XAUT_USDT` | `XAUTUSDT` | `XAUT-USD` |
+| **XLMUSD** | 2x/2x | `XLM-USD` | `XLM_USDT` | `XLMUSDT` | `XLM-USD` |
+| **XMRUSD** | 2x/2x | `XMR-USD` | `XMR_USDT` | `XMRUSDT` | `XMR-USD` |
+| **XPLUSD** | 2x/2x | `XPL-USD` | `XPL_USDT` | `XPLUSDT` | `XPL-USD` |
+| **XRPUSD** | 3x/2x | `XRP-USD` | `XRP_USDT` | `XRPUSDT` | `XRP-USD` |
+| **ZECUSD** | 2x/2x | `ZEC-USD` | `ZEC_USDT` | `ZECUSDT` | `ZEC-USD` |
+| **ZROUSD** | 2x/2x | `ZRO-USD` | `ZRO_USDT` | `ZROUSDT` | `ZRO-USD` |
+
+## Stocks (77 symbols)
+
+| Internal Symbol | Max Leverage (L/S) | Yahoo Finance | Gate.io Pair | MEXC Symbol | Coinbase Product |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **AAOI** | 2x/2x | `AAOI` | - | - | - |
+| **AAPL** | 2x/2x | `AAPL` | - | - | - |
+| **ADBE** | 2x/2x | `ADBE` | - | - | - |
+| **AMAT** | 2x/2x | `AMAT` | - | - | - |
+| **AMD** | 2x/2x | `AMD` | - | - | - |
+| **AMZN** | 2x/2x | `AMZN` | - | - | - |
+| **ARM** | 2x/2x | `ARM` | - | - | - |
+| **ASML** | 2x/2x | `ASML` | - | - | - |
+| **AVGO** | 2x/2x | `AVGO` | - | - | - |
+| **AXTI** | 2x/2x | `AXTI` | - | - | - |
+| **BABA** | 2x/2x | `BABA` | - | - | - |
+| **BE** | 2x/2x | `BE` | - | - | - |
+| **BMNR** | 2x/2x | `BMNR` | - | - | - |
+| **BRKB** | 2x/2x | `BRK-B` | - | - | - |
+| **BX** | 2x/2x | `BX` | - | - | - |
+| **COHR** | 2x/2x | `COHR` | - | - | - |
+| **COIN** | 2x/2x | `COIN` | - | - | - |
+| **COST** | 2x/2x | `COST` | - | - | - |
+| **CRCL** | 2x/2x | `CRCL` | - | - | - |
+| **CRDO** | 2x/2x | `CRDO` | - | - | - |
+| **CRM** | 2x/2x | `CRM` | - | - | - |
+| **CRWD** | 2x/2x | `CRWD` | - | - | - |
+| **CRWV** | 2x/2x | `CRWV` | - | - | - |
+| **CSCO** | 2x/2x | `CSCO` | - | - | - |
+| **DELL** | 2x/2x | `DELL` | - | - | - |
+| **DIS** | 2x/2x | `DIS` | - | - | - |
+| **DKNG** | 2x/2x | `DKNG` | - | - | - |
+| **FLNC** | 2x/2x | `FLNC` | - | - | - |
+| **GLW** | 2x/2x | `GLW` | - | - | - |
+| **GME** | 2x/2x | `GME` | - | - | - |
+| **GOOGL** | 2x/2x | `GOOGL` | - | - | - |
+| **HD** | 2x/2x | `HD` | - | - | - |
+| **HIMS** | 2x/2x | `HIMS` | - | - | - |
+| **HOOD** | 2x/2x | `HOOD` | - | - | - |
+| **HPE** | 2x/2x | `HPE` | - | - | - |
+| **HYUNDAI** | 2x/2x | `005380.KS` | - | - | - |
+| **IBM** | 2x/2x | `IBM` | - | - | - |
+| **INTC** | 2x/2x | `INTC` | - | - | - |
+| **IREN** | 2x/2x | `IREN` | - | - | - |
+| **JPM** | 2x/2x | `JPM` | - | - | - |
+| **LITE** | 2x/2x | `LITE` | - | - | - |
+| **LLY** | 2x/2x | `LLY` | - | - | - |
+| **LUNR** | 2x/2x | `LUNR` | - | - | - |
+| **META** | 2x/2x | `META` | - | - | - |
+| **MP** | 2x/2x | `MP` | - | - | - |
+| **MRVL** | 2x/2x | `MRVL` | - | - | - |
+| **MSFT** | 2x/2x | `MSFT` | - | - | - |
+| **MSTR** | 2x/2x | `MSTR` | - | - | - |
+| **MU** | 2x/2x | `MU` | - | - | - |
+| **NBIS** | 2x/2x | `NBIS` | - | - | - |
+| **NFLX** | 2x/2x | `NFLX` | - | - | - |
+| **NOK** | 2x/2x | `NOK` | - | - | - |
+| **NOW** | 2x/2x | `NOW` | - | - | - |
+| **NVDA** | 2x/2x | `NVDA` | - | - | - |
+| **NVO** | 2x/2x | `NVO` | - | - | - |
+| **OKLO** | 2x/2x | `OKLO` | - | - | - |
+| **ONDS** | 2x/2x | `ONDS` | - | - | - |
+| **ORCL** | 2x/2x | `ORCL` | - | - | - |
+| **PLTR** | 2x/2x | `PLTR` | - | - | - |
+| **QCOM** | 2x/2x | `QCOM` | - | - | - |
+| **RDDT** | 2x/2x | `RDDT` | - | - | - |
+| **RDW** | 2x/2x | `RDW` | - | - | - |
+| **RGTI** | 2x/2x | `RGTI` | - | - | - |
+| **RIVN** | 2x/2x | `RIVN` | - | - | - |
+| **RKLB** | 2x/2x | `RKLB` | - | - | - |
+| **SAMSUNG** | 2x/2x | `005930.KS` | - | - | - |
+| **SNDK** | 2x/2x | `SNDK` | - | - | - |
+| **SPCX** | 2x/2x | `SPCX` | - | - | - |
+| **TSLA** | 2x/2x | `TSLA` | - | - | - |
+| **TSM** | 2x/2x | `TSM` | - | - | - |
+| **UBER** | 2x/2x | `UBER` | - | - | - |
+| **V** | 2x/2x | `V` | - | - | - |
+| **VRT** | 2x/2x | `VRT` | - | - | - |
+| **WDC** | 2x/2x | `WDC` | - | - | - |
+| **WMT** | 2x/2x | `WMT` | - | - | - |
+| **XOM** | 2x/2x | `XOM` | - | - | - |
+| **ZM** | 2x/2x | `ZM` | - | - | - |
+
+## Commodities (7 symbols)
+
+| Internal Symbol | Max Leverage (L/S) | Yahoo Finance | Gate.io Pair | MEXC Symbol | Coinbase Product |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **CL** | 3x/2x | `CL=F` | - | - | - |
+| **COPPER** | 3x/2x | `HG=F` | - | - | - |
+| **NATGAS** | 3x/2x | `NG=F` | - | - | - |
+| **XAG** | 3x/2x | `SI=F` | - | - | - |
+| **XAU** | 3x/2x | `GC=F` | - | - | - |
+| **XPD** | 3x/2x | `PA=F` | - | - | - |
+| **XPT** | 3x/2x | `PL=F` | - | - | - |
+
+## Indices (7 symbols)
+
+| Internal Symbol | Max Leverage (L/S) | Yahoo Finance | Gate.io Pair | MEXC Symbol | Coinbase Product |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **EWJ** | 6x/5x | `EWJ` | - | - | - |
+| **EWY** | 6x/5x | `EWY` | - | - | - |
+| **EWZ** | 6x/5x | `EWZ` | - | - | - |
+| **IWM** | 6x/5x | `IWM` | - | - | - |
+| **QQQ** | 6x/5x | `QQQ` | - | - | - |
+| **SPY** | 6x/5x | `SPY` | - | - | - |
+| **STXX** | 6x/5x | `EZU` | - | - | - |
+
+## Forex (39 symbols)
+
+| Internal Symbol | Max Leverage (L/S) | Yahoo Finance | Gate.io Pair | MEXC Symbol | Coinbase Product |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **EURUSD** | 50x/30x | `EURUSD=X` | - | - | - |
+| **USDJPY** | 50x/30x | `USDJPY=X` | - | - | - |
+| **GBPUSD** | 50x/30x | `GBPUSD=X` | - | - | - |
+| **USDCHF** | 50x/30x | `USDCHF=X` | - | - | - |
+| **AUDUSD** | 50x/30x | `AUDUSD=X` | - | - | - |
+| **NZDUSD** | 50x/30x | `NZDUSD=X` | - | - | - |
+| **USDCAD** | 50x/30x | `USDCAD=X` | - | - | - |
+| **AUDCAD** | 30x/20x | `AUDCAD=X` | - | - | - |
+| **AUDCHF** | 30x/20x | `AUDCHF=X` | - | - | - |
+| **AUDJPY** | 30x/20x | `AUDJPY=X` | - | - | - |
+| **AUDNZD** | 30x/20x | `AUDNZD=X` | - | - | - |
+| **CADCHF** | 30x/20x | `CADCHF=X` | - | - | - |
+| **CADJPY** | 30x/20x | `CADJPY=X` | - | - | - |
+| **CHFJPY** | 30x/20x | `CHFJPY=X` | - | - | - |
+| **EURAUD** | 30x/20x | `EURAUD=X` | - | - | - |
+| **EURCAD** | 30x/20x | `EURCAD=X` | - | - | - |
+| **EURCHF** | 30x/20x | `EURCHF=X` | - | - | - |
+| **EURGBP** | 30x/20x | `EURGBP=X` | - | - | - |
+| **EURJPY** | 30x/20x | `EURJPY=X` | - | - | - |
+| **EURNZD** | 30x/20x | `EURNZD=X` | - | - | - |
+| **GBPAUD** | 30x/20x | `GBPAUD=X` | - | - | - |
+| **GBPCAD** | 30x/20x | `GBPCAD=X` | - | - | - |
+| **GBPCHF** | 30x/20x | `GBPCHF=X` | - | - | - |
+| **GBPJPY** | 30x/20x | `GBPJPY=X` | - | - | - |
+| **GBPNZD** | 30x/20x | `GBPNZD=X` | - | - | - |
+| **NZDCAD** | 30x/20x | `NZDCAD=X` | - | - | - |
+| **NZDCHF** | 30x/20x | `NZDCHF=X` | - | - | - |
+| **NZDJPY** | 30x/20x | `NZDJPY=X` | - | - | - |
+| **USDCNH** | 20x/10x | `USDCNH=X` | - | - | - |
+| **USDCZK** | 20x/10x | `USDCZK=X` | - | - | - |
+| **USDDKK** | 20x/10x | `USDDKK=X` | - | - | - |
+| **USDHKD** | 20x/10x | `USDHKD=X` | - | - | - |
+| **USDHUF** | 20x/10x | `USDHUF=X` | - | - | - |
+| **USDMXN** | 20x/10x | `USDMXN=X` | - | - | - |
+| **USDNOK** | 20x/10x | `USDNOK=X` | - | - | - |
+| **USDPLN** | 20x/10x | `USDPLN=X` | - | - | - |
+| **USDSGD** | 20x/10x | `USDSGD=X` | - | - | - |
+| **USDSEK** | 20x/10x | `USDSEK=X` | - | - | - |
+| **USDZAR** | 20x/10x | `USDZAR=X` | - | - | - |
