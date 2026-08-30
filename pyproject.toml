@@ -29,6 +29,7 @@ fast = [
 
 [project.scripts]
 marketdata = "marketdata.cli:main"
+marketdata-mcp = "marketdata.mcp_server:run_mcp_server"
 
 [build-system]
 requires = ["setuptools>=61.0"]

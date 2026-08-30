@@ -289,3 +289,46 @@ def test_cron_delta_sync():
         report = engine.sync(categories=["crypto"], timeframes=["1d"], force=True)
         assert report.total_series >= 100
         assert report.error_count == 0
+
+
+def test_config_home_dir():
+    """Verify dynamic home directory configuration and user config."""
+    from marketdata.config import get_home_dir, set_user_config_value, get_user_config
+
+    original_home = get_home_dir()
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        test_path = Path(tmp_dir).resolve()
+        set_user_config_value("home_dir", str(test_path))
+
+        cfg = get_user_config()
+        assert cfg.get("home_dir") == str(test_path)
+        assert get_home_dir() == test_path
+
+        # Reset back
+        set_user_config_value("home_dir", None)
+        assert get_home_dir() == original_home
+
+
+def test_mcp_tools():
+    """Verify MCP tool handlers for AI agent integration."""
+    from marketdata.mcp_server import (
+        tool_get_historical_data,
+        tool_get_instrument_info,
+        tool_list_instruments,
+        tool_calculate_indicators,
+        tool_get_cache_status,
+    )
+
+    info = tool_get_instrument_info("AAPL")
+    assert info["symbol"] == "AAPL"
+    assert "mapped_provider_tickers" in info
+
+    hist = tool_get_historical_data("AAPL", timeframe="1d", limit=5)
+    assert "bars" in hist
+    assert len(hist["bars"]) <= 5
+
+    ind = tool_calculate_indicators("AAPL", timeframe="1d", indicators=["sma_20", "rsi_14"], limit=5)
+    assert "latest_indicators" in ind
+
+    status = tool_get_cache_status()
+    assert "total_files" in status

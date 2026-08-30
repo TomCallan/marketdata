@@ -1,0 +1,33 @@
+{
+  "_comment": "MarketData MCP Server Configuration Templates for AI Agents",
+  "claude_desktop": {
+    "mcpServers": {
+      "marketdata": {
+        "command": "python",
+        "args": ["-m", "marketdata.cli", "mcp"],
+        "env": {
+          "MARKETDATA_HOME": "C:\\Users\\TomCa\\Documents\\velotrade"
+        }
+      }
+    }
+  },
+  "cursor_and_windsurf": {
+    "mcpServers": {
+      "marketdata": {
+        "command": "marketdata-mcp",
+        "args": []
+      }
+    }
+  },
+  "antigravity_cli": {
+    "mcpServers": {
+      "marketdata": {
+        "command": "python",
+        "args": ["-m", "marketdata.cli", "mcp"],
+        "env": {
+          "MARKETDATA_HOME": "C:\\Users\\TomCa\\Documents\\velotrade"
+        }
+      }
+    }
+  }
+}

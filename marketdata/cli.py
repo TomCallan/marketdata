@@ -1,6 +1,8 @@
-"""Rich-Powered Command Line Interface for MarketData Toolkit."""
+"""Rich-Powered Command Line Interface for MarketData Toolkit with JSON Output & MCP Support."""
 
 import argparse
+import json
+from pathlib import Path
 import sys
 from typing import Optional
 import pandas as pd
@@ -15,6 +17,7 @@ try:
 except ImportError:
     HAS_RICH = False
 
+from marketdata.config import BASE_DIR, DATA_DIR, LOGS_DIR, USER_CONFIG_FILE, get_home_dir, get_user_config, set_user_config_value
 from marketdata.loader import DataLoader
 from marketdata.mappings import TickerConverter, generate_mappings_and_table
 from marketdata.registry import get_registry
@@ -30,10 +33,103 @@ def format_bytes(size: int) -> str:
     return f"{size:.1f} TB"
 
 
+def cmd_config(args):
+    """Manage global configuration and active home directory."""
+    subaction = args.config_action
+
+    if subaction == "set-home":
+        new_home = Path(args.path).resolve()
+        if not new_home.exists():
+            if args.create:
+                new_home.mkdir(parents=True, exist_ok=True)
+            else:
+                print(f"Error: Path '{new_home}' does not exist. Use --create to create it automatically.")
+                sys.exit(1)
+
+        set_user_config_value("home_dir", str(new_home))
+        if HAS_RICH and not args.json:
+            console.print(f"[bold green]Updated MarketData home directory to:[/bold green] [cyan]{new_home}[/cyan]")
+            console.print(f"Saved to: [dim]{USER_CONFIG_FILE}[/dim]")
+        else:
+            if args.json:
+                print(json.dumps({"status": "success", "home_dir": str(new_home), "config_file": str(USER_CONFIG_FILE)}))
+            else:
+                print(f"Updated MarketData home directory to: {new_home}")
+
+    elif subaction == "reset-home":
+        set_user_config_value("home_dir", None)
+        if HAS_RICH and not args.json:
+            console.print(f"[bold green]Reset home directory to default.[/bold green]")
+        else:
+            if args.json:
+                print(json.dumps({"status": "success", "home_dir": str(get_home_dir())}))
+            else:
+                print("Reset home directory to default.")
+
+    else:  # show
+        home = get_home_dir()
+        cfg = get_user_config()
+        env_home = os.environ.get("MARKETDATA_HOME") if "os" in globals() else None
+
+        info = {
+            "active_home_dir": str(home),
+            "data_dir": str(home / "data"),
+            "logs_dir": str(home / "logs"),
+            "config_file": str(USER_CONFIG_FILE),
+            "env_var_MARKETDATA_HOME": env_home or "Not Set",
+            "saved_home_setting": cfg.get("home_dir") or "Not Set",
+        }
+
+        if args.json:
+            print(json.dumps(info, indent=2))
+        elif HAS_RICH:
+            table = Table(
+                title="MarketData Active Configuration",
+                box=box.ROUNDED,
+                header_style="bold cyan",
+                border_style="bright_blue",
+            )
+            table.add_column("Setting", style="bold white", width=26)
+            table.add_column("Value", style="green")
+
+            for k, v in info.items():
+                table.add_row(k.replace("_", " ").title(), str(v))
+            console.print(table)
+        else:
+            print("\nMarketData Active Configuration:")
+            for k, v in info.items():
+                print(f"  {k:<24}: {v}")
+
+
+def cmd_mcp(args):
+    """Start the Model Context Protocol (MCP) Server on stdio."""
+    from marketdata.mcp_server import run_mcp_server
+    run_mcp_server()
+
+
 def cmd_list(args):
     reg = get_registry()
     instruments = reg.list_all(category=args.category)
     
+    if args.json:
+        out = [
+            {
+                "symbol": i.symbol,
+                "category": i.category,
+                "max_leverage_long": i.max_leverage_long,
+                "max_leverage_short": i.max_leverage_short,
+                "commission": i.commission,
+                "trading_hours": i.trading_hours,
+                "yfinance_ticker": i.yfinance_ticker,
+                "gateio_pair": i.gateio_pair,
+                "mexc_symbol": i.mexc_symbol,
+                "coinbase_product": i.coinbase_product,
+            }
+            for i in instruments
+        ]
+        print(json.dumps(out, indent=2))
+        return
+
     if not instruments:
         if HAS_RICH:
             console.print(f"[yellow]No instruments found for category '{args.category}'.[/yellow]")
@@ -74,11 +170,31 @@ def cmd_info(args):
     reg = get_registry()
     inst = reg.get(args.symbol)
     if not inst:
-        if HAS_RICH:
+        if args.json:
+            print(json.dumps({"error": f"Symbol '{args.symbol}' not found in registry."}))
+        elif HAS_RICH:
             console.print(f"[bold red]Error:[/bold red] Symbol '{args.symbol}' not found in registry.")
         else:
             print(f"Error: Symbol '{args.symbol}' not found in registry.")
         sys.exit(1)
+
+    if args.json:
+        out = {
+            "symbol": inst.symbol,
+            "category": inst.category,
+            "max_leverage_long": inst.max_leverage_long,
+            "max_leverage_short": inst.max_leverage_short,
+            "commission": inst.commission,
+            "trading_hours": inst.trading_hours,
+            "overnight_swap": inst.overnight_swap,
+            "trading_size": inst.trading_size,
+            "yfinance_ticker": inst.yfinance_ticker,
+            "gateio_pair": inst.gateio_pair,
+            "mexc_symbol": inst.mexc_symbol,
+            "coinbase_product": inst.coinbase_product,
+        }
+        print(json.dumps(out, indent=2))
+        return
 
     if HAS_RICH:
         content = (
@@ -123,13 +239,17 @@ def cmd_convert(args):
     conv = TickerConverter()
     if args.reverse:
         res = conv.from_provider(args.symbol, provider=args.provider)
-        if HAS_RICH:
+        if args.json:
+            print(json.dumps({"provider": args.provider, "provider_ticker": args.symbol, "internal_symbol": res}))
+        elif HAS_RICH:
             console.print(f"Provider [bold cyan]{args.provider}[/bold cyan] ticker '[bold yellow]{args.symbol}[/bold yellow]' -> Internal symbol: '[bold green]{res}[/bold green]'")
         else:
             print(f"Provider '{args.provider}' ticker '{args.symbol}' -> Internal symbol: '{res}'")
     else:
         res = conv.to_provider(args.symbol, provider=args.provider)
-        if HAS_RICH:
+        if args.json:
+            print(json.dumps({"internal_symbol": args.symbol, "provider": args.provider, "provider_ticker": res}))
+        elif HAS_RICH:
             console.print(f"Internal symbol '[bold green]{args.symbol}[/bold green]' -> Provider [bold cyan]{args.provider}[/bold cyan] ticker: '[bold yellow]{res}[/bold yellow]'")
         else:
             print(f"Internal symbol '{args.symbol}' -> Provider '{args.provider}' ticker: '{res}'")
@@ -137,11 +257,12 @@ def cmd_convert(args):
 
 def cmd_get(args):
     loader = DataLoader()
-    msg = f"Fetching '[bold green]{args.symbol}[/bold green]' [{args.timeframe}] (start={args.start}, end={args.end})..."
-    if HAS_RICH:
-        console.print(msg)
-    else:
-        print(f"Fetching '{args.symbol}' [{args.timeframe}] (start={args.start}, end={args.end})...")
+    if not args.json:
+        msg = f"Fetching '[bold green]{args.symbol}[/bold green]' [{args.timeframe}] (start={args.start}, end={args.end})..."
+        if HAS_RICH:
+            console.print(msg)
+        else:
+            print(f"Fetching '{args.symbol}' [{args.timeframe}] (start={args.start}, end={args.end})...")
 
     df = loader.get(
         symbol=args.symbol,
@@ -152,10 +273,32 @@ def cmd_get(args):
     )
 
     if df.empty:
-        if HAS_RICH:
+        if args.json:
+            print(json.dumps({"error": "No data retrieved", "symbol": args.symbol, "timeframe": args.timeframe}))
+        elif HAS_RICH:
             console.print("[bold red]No data retrieved.[/bold red]")
         else:
             print("No data retrieved.")
+        return
+
+    if args.json:
+        display_df = df.head(args.head) if args.head else df.tail(args.tail if args.tail else len(df))
+        records = []
+        for ts, row in display_df.iterrows():
+            records.append({
+                "timestamp": str(ts)[:19],
+                "open": float(row["open"]),
+                "high": float(row["high"]),
+                "low": float(row["low"]),
+                "close": float(row["close"]),
+                "volume": float(row["volume"]),
+            })
+        print(json.dumps({
+            "symbol": args.symbol.upper(),
+            "timeframe": args.timeframe,
+            "total_bars": len(df),
+            "bars": records,
+        }, indent=2))
         return
 
     s_str = str(df.index.min())[:19]
@@ -243,6 +386,27 @@ def cmd_status(args):
     loader = DataLoader()
     info_list = loader.get_cache_status()
     
+    if args.json:
+        out = {
+            "total_files": len(info_list),
+            "total_bars": sum(i.row_count for i in info_list),
+            "total_size_bytes": sum(i.file_size_bytes for i in info_list),
+            "files": [
+                {
+                    "symbol": i.symbol,
+                    "category": i.category,
+                    "timeframe": i.timeframe,
+                    "bars": i.row_count,
+                    "size_bytes": i.file_size_bytes,
+                    "start": str(i.start)[:19],
+                    "end": str(i.end)[:19],
+                }
+                for i in sorted(info_list, key=lambda x: (x.category, x.symbol, x.timeframe))
+            ],
+        }
+        print(json.dumps(out, indent=2))
+        return
+
     if not info_list:
         if HAS_RICH:
             console.print("[yellow]No cached datasets found in data/ directory.[/yellow]")
@@ -303,6 +467,10 @@ def cmd_status(args):
 
 def cmd_sources(args):
     sources = DataLoader.list_sources()
+    if args.json:
+        print(json.dumps(sources, indent=2))
+        return
+
     if HAS_RICH:
         table = Table(
             title=f"Active Market Data Source Plugins ({len(sources)})",
@@ -338,6 +506,18 @@ def cmd_keys(args):
         ("Polygon.io", "polygon", "5 requests / min (Free tier)"),
         ("Twelve Data", "twelvedata", "8 requests / min, 800/day (Free tier)"),
     ]
+    if args.json:
+        out = {
+            name: {
+                "configured": bool(get_api_key(key_id)),
+                "env_var": f"{key_id.upper()}_API_KEY",
+                "limits": limits,
+            }
+            for name, key_id, limits in services
+        }
+        print(json.dumps(out, indent=2))
+        return
+
     if HAS_RICH:
         table = Table(
             title="Configured API Keys & Free Provider Status",
@@ -376,10 +556,11 @@ def cmd_sync(args):
     if args.all_timeframes:
         timeframes = ["1d", "1h", "30m", "15m", "5m", "1m"]
 
-    if HAS_RICH:
-        console.print(f"[bold blue]Executing incremental delta-sync...[/bold blue] (Categories: {categories or 'All'}, Timeframes: {timeframes}, Overlap: {args.overlap} bars)")
-    else:
-        print(f"Executing incremental delta-sync... (Categories: {categories or 'All'}, Timeframes: {timeframes}, Overlap: {args.overlap} bars)")
+    if not args.json:
+        if HAS_RICH:
+            console.print(f"[bold blue]Executing incremental delta-sync...[/bold blue] (Categories: {categories or 'All'}, Timeframes: {timeframes}, Overlap: {args.overlap} bars)")
+        else:
+            print(f"Executing incremental delta-sync... (Categories: {categories or 'All'}, Timeframes: {timeframes}, Overlap: {args.overlap} bars)")
 
     report = engine.sync(
         categories=categories,
@@ -388,6 +569,19 @@ def cmd_sync(args):
         check_market_hours=not args.ignore_market_hours,
         force=args.force,
     )
+
+    if args.json:
+        print(json.dumps({
+            "status": "success",
+            "timestamp": str(report.timestamp)[:19],
+            "duration_seconds": round(report.duration_seconds, 2),
+            "total_series": report.total_series,
+            "updated_count": report.updated_count,
+            "skipped_closed_count": report.skipped_closed_count,
+            "error_count": report.error_count,
+            "total_bars_added": report.total_bars_added,
+        }, indent=2))
+        return
 
     if HAS_RICH:
         table = Table(
@@ -494,25 +688,43 @@ def cmd_export_mappings(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="MarketData: Universal Historical Market Data Downloader & Cache")
+    base_parser = argparse.ArgumentParser(add_help=False)
+    base_parser.add_argument("--json", action="store_true", help="Output machine-readable JSON format for AI agents")
+
+    parser = argparse.ArgumentParser(
+        description="MarketData: Universal Historical Market Data Downloader & Cache",
+        parents=[base_parser],
+    )
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
+    # config
+    p_cfg = subparsers.add_parser("config", parents=[base_parser], help="Manage global configuration and active home directory")
+    cfg_subs = p_cfg.add_subparsers(dest="config_action", help="Config actions")
+    cfg_subs.add_parser("show", parents=[base_parser], help="Show active configuration paths")
+    p_set_home = cfg_subs.add_parser("set-home", parents=[base_parser], help="Set default home directory for market data cache")
+    p_set_home.add_argument("path", help="Directory path to use for marketdata cache and config")
+    p_set_home.add_argument("--create", "-c", action="store_true", help="Create directory if it does not exist")
+    cfg_subs.add_parser("reset-home", parents=[base_parser], help="Reset home directory to default repository directory")
+
+    # mcp
+    subparsers.add_parser("mcp", parents=[base_parser], help="Start the Model Context Protocol (MCP) server on stdio for AI agents")
+
     # list
-    p_list = subparsers.add_parser("list", help="List tradeable instruments")
+    p_list = subparsers.add_parser("list", parents=[base_parser], help="List tradeable instruments")
     p_list.add_argument("--category", "-c", choices=["crypto", "stocks", "commodities", "indices", "forex"], help="Filter by category")
 
     # info
-    p_info = subparsers.add_parser("info", help="Show instrument details and provider mappings")
+    p_info = subparsers.add_parser("info", parents=[base_parser], help="Show instrument details and provider mappings")
     p_info.add_argument("symbol", help="Instrument symbol (e.g. BTCUSD, AAPL, EURUSD)")
 
     # convert
-    p_conv = subparsers.add_parser("convert", help="Translate ticker to/from provider formats")
+    p_conv = subparsers.add_parser("convert", parents=[base_parser], help="Translate ticker to/from provider formats")
     p_conv.add_argument("symbol", help="Symbol to convert")
     p_conv.add_argument("--provider", "-p", default="yfinance", choices=["yfinance", "gateio", "mexc", "coinbase"], help="Target provider")
     p_conv.add_argument("--reverse", "-r", action="store_true", help="Convert from provider symbol back to internal symbol")
 
     # get
-    p_get = subparsers.add_parser("get", help="Get on-demand historical data for a symbol")
+    p_get = subparsers.add_parser("get", parents=[base_parser], help="Get on-demand historical data for a symbol")
     p_get.add_argument("symbol", help="Instrument symbol")
     p_get.add_argument("--timeframe", "-t", default="1d", help="Timeframe interval (1m, 5m, 15m, 1h, 1d)")
     p_get.add_argument("--start", "-s", default=None, help="Start date (YYYY-MM-DD)")
@@ -522,7 +734,7 @@ def main():
     p_get.add_argument("--tail", type=int, default=5, help="Print last N rows")
 
     # download-all
-    p_all = subparsers.add_parser("download-all", help="Batch download historical data")
+    p_all = subparsers.add_parser("download-all", parents=[base_parser], help="Batch download historical data")
     p_all.add_argument("--category", "-c", choices=["crypto", "stocks", "commodities", "indices", "forex"], help="Filter by category")
     p_all.add_argument("--timeframe", "-t", default="1d", help="Timeframe interval")
     p_all.add_argument("--start", "-s", default=None, help="Start date")
@@ -530,7 +742,7 @@ def main():
     p_all.add_argument("--workers", "-w", type=int, default=5, help="Concurrent download workers")
 
     # sync (cron delta-sync)
-    p_sync = subparsers.add_parser("sync", help="Execute server-optimized incremental delta sync")
+    p_sync = subparsers.add_parser("sync", parents=[base_parser], help="Execute server-optimized incremental delta sync")
     p_sync.add_argument("--category", "-c", choices=["crypto", "stocks", "commodities", "indices", "forex"], help="Filter by category")
     p_sync.add_argument("--timeframe", "-t", default="1d", help="Timeframe interval")
     p_sync.add_argument("--all-timeframes", action="store_true", help="Sync across all 6 timeframes (1d, 1h, 30m, 15m, 5m, 1m)")
@@ -539,29 +751,33 @@ def main():
     p_sync.add_argument("--force", "-f", action="store_true", help="Force sync regardless of market status")
 
     # daemon
-    p_daemon = subparsers.add_parser("daemon", help="Run recurring sync daemon")
+    p_daemon = subparsers.add_parser("daemon", parents=[base_parser], help="Run recurring sync daemon")
     p_daemon.add_argument("--interval-seconds", "-i", type=int, default=3600, help="Interval in seconds between syncs (default: 3600s)")
     p_daemon.add_argument("--category", "-c", choices=["crypto", "stocks", "commodities", "indices", "forex"], help="Filter by category")
     p_daemon.add_argument("--timeframe", "-t", default="1h", help="Timeframe interval")
 
     # generate-cron
-    subparsers.add_parser("generate-cron", help="Generate Crontab and Systemd deployment templates")
+    subparsers.add_parser("generate-cron", parents=[base_parser], help="Generate Crontab and Systemd deployment templates")
 
     # status
-    subparsers.add_parser("status", help="Show status of local cached data")
+    subparsers.add_parser("status", parents=[base_parser], help="Show status of local cached data")
 
     # sources
-    subparsers.add_parser("sources", help="List registered market data plugins")
+    subparsers.add_parser("sources", parents=[base_parser], help="List registered market data plugins")
 
     # keys
-    subparsers.add_parser("keys", help="Show configured optional API keys status")
+    subparsers.add_parser("keys", parents=[base_parser], help="Show configured optional API keys status")
 
     # export-mappings
-    subparsers.add_parser("export-mappings", help="Export conversion table and mappings")
+    subparsers.add_parser("export-mappings", parents=[base_parser], help="Export conversion table and mappings")
 
     args = parser.parse_args()
 
-    if args.command == "list":
+    if args.command == "config":
+        cmd_config(args)
+    elif args.command == "mcp":
+        cmd_mcp(args)
+    elif args.command == "list":
         cmd_list(args)
     elif args.command == "info":
         cmd_info(args)

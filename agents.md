@@ -24,69 +24,61 @@ All historical market data is retrieved **on-demand** using high-availability fr
 - **Zero API Key Requirement**: Primary and secondary fetchers operate out-of-the-box without keys.
 - **Transparent Fallback Chain**: If an API key is missing or rate-limited, requests automatically cascade to subsequent free/zero-key providers.
 - **Server Cron Delta-Sync Engine**: High-efficiency incremental synchronization that only pulls missing candle slices, skips closed markets, and performs atomic Parquet writes.
-- **Unified OHLCV Schema**: UTC `timestamp` index with columns `['open', 'high', 'low', 'close', 'volume']`.
+- **AI Agent MCP Server**: Full Model Context Protocol (MCP) server support (`marketdata mcp` / `marketdata-mcp`) allowing AI agents (Antigravity, Claude, Cursor, OpenCode, Kimi) to fetch candles and calculate indicators.
+- **Global Home Directory Configuration**: Configurable via CLI (`marketdata config set-home <path>`) or `MARKETDATA_HOME` environment variable.
 
 ---
 
-## 3. Python API Quickstart
-
-### Fetching Historical Data:
-```python
-from marketdata.loader import get_historical_data
-
-# Fetch daily crypto data (auto-routes to CCXT -> Gate.io -> Yahoo)
-df_btc = get_historical_data("BTCUSD", timeframe="1d", start="2024-01-01")
-
-# Fetch hourly stock data
-df_aapl = get_historical_data("AAPL", timeframe="1h")
-
-# Fetch commodity futures (Crude Oil)
-df_cl = get_historical_data("CL", timeframe="1d")
-
-# Fetch forex (Euro / US Dollar)
-df_eur = get_historical_data("EURUSD", timeframe="1d")
-```
-
-### Running Server Incremental Sync:
-```python
-from marketdata.cron import CronSyncEngine
-
-engine = CronSyncEngine()
-# Incremental delta-sync with closed market skipping
-report = engine.sync(timeframes=["1h", "1d"], overlap_bars=2)
-print(f"Updated {report.updated_count} series, added {report.total_bars_added} bars.")
-```
-
----
-
-## 4. CLI Usage (`python -m marketdata.data`)
+## 3. Global CLI Usage & Machine-Readable Output
 
 ```bash
+# Manage active home directory & data paths
+marketdata config show
+marketdata config set-home C:\Data\marketdata --create
+marketdata config reset-home
+
+# Start MCP Server on stdio for AI agents
+marketdata mcp
+
+# Get data in machine-readable JSON format for AI agents
+marketdata get BTCUSD --timeframe 1d --tail 10 --json
+marketdata info AAPL --json
+marketdata list --category crypto --json
+marketdata status --json
+marketdata sync --timeframe 1h --json
+
 # Execute server cron delta-sync
-python -m marketdata.data sync --timeframe 1h
-python -m marketdata.data sync --all-timeframes
+marketdata sync --timeframe 1h
+marketdata sync --all-timeframes
 
 # Run persistent sync daemon
-python -m marketdata.data daemon --interval-seconds 3600
+marketdata daemon --interval-seconds 3600
 
 # Generate Crontab and Systemd deployment templates
-python -m marketdata.data generate-cron
-
-# List all tradeable instruments (or filter by category)
-python -m marketdata.data list --category crypto
-
-# Show instrument details & mapped external tickers
-python -m marketdata.data info BTCUSD
-
-# Fetch and cache historical data on demand
-python -m marketdata.data get BTCUSD --timeframe 1d --start 2024-01-01
-
-# Check local cache storage and bar counts
-python -m marketdata.data status
-
-# List active market data plugins/sources
-python -m marketdata.data sources
-
-# Check optional API keys status
-python -m marketdata.data keys
+marketdata generate-cron
 ```
+
+---
+
+## 4. Model Context Protocol (MCP) Server Setup
+
+Add this configuration to your AI agent's config file (e.g. `claude_desktop_config.json`, `.cursor/mcp.json`, or Antigravity):
+
+```json
+{
+  "mcpServers": {
+    "marketdata": {
+      "command": "marketdata-mcp",
+      "args": []
+    }
+  }
+}
+```
+
+### Available MCP Tools for Agents:
+- **`get_historical_data(symbol, timeframe, start, end, limit)`**: Fetch OHLCV candles.
+- **`calculate_indicators(symbol, timeframe, indicators, limit)`**: Compute SMA, EMA, RSI, MACD, Bollinger Bands.
+- **`get_instrument_info(symbol)`**: Leverage limits, trading hours, and external provider mappings.
+- **`sync_market_data(category, timeframe)`**: Run delta-sync.
+- **`list_instruments(category)`**: List available instruments.
+- **`get_cache_status()`**: Inspect cached datasets and disk usage.

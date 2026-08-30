@@ -4,32 +4,81 @@ A high-performance, modular market data retrieval, caching, and server synchroni
 
 ---
 
-## 1. Features
-- **Zero-Key Out-Of-The-Box Operation**: Retrieves historical and live candles without mandatory API keys using CCXT, Gate.io, MEXC, Coinbase, and Yahoo Finance.
-- **8 Modular Provider Plugins**: Transparent priority routing with support for **Massive (formerly Polygon.io)**, **Twelve Data**, **Tiingo**, **Finnhub**, and **Alpha Vantage**.
-- **Server Cron Optimization**: Smart incremental delta-syncing (`sync`) that checks local caches, fetches only missing candle slices (with 2-bar overlap for candle finalization), and skips closed markets (e.g. weekends) in 0.00 seconds.
-- **Crash-Resilient Storage**: Atomic Parquet writes (`.tmp` -> atomic rename) guaranteeing zero database/file corruption during power outages or interrupted jobs.
-- **Built-in Daemon & Deployment Generators**: One command to generate ready-to-run Crontab schedules and Linux systemd `.service` / `.timer` units.
+## 1. Global PC Access & Dynamic Home Directory
+
+MarketData can be installed and queried from **any directory, script, or AI agent** across your entire computer.
+
+### Configuring the Data Directory:
+```bash
+# View active configuration and cache directory
+marketdata config show
+
+# Point the market data cache to any custom folder on your PC
+marketdata config set-home C:\Data\marketdata --create
+
+# Or set via environment variable
+export MARKETDATA_HOME="C:\Data\marketdata"
+
+# Reset back to default
+marketdata config reset-home
+```
 
 ---
 
-## 2. Server Cron Jobs & Automated Scheduling
+## 2. AI Agent Integration (Antigravity, Claude, Cursor, OpenCode, Kimi)
+
+MarketData includes a built-in **Model Context Protocol (MCP)** server and machine-readable JSON flags for autonomous AI agents.
+
+### Option A: Standard MCP Server Integration
+Add MarketData to your agent's MCP configuration (`claude_desktop_config.json`, `.cursor/mcp.json`, or Antigravity):
+
+```json
+{
+  "mcpServers": {
+    "marketdata": {
+      "command": "marketdata-mcp",
+      "args": []
+    }
+  }
+}
+```
+
+#### MCP Tools Provided to Agents:
+- **`get_historical_data`**: Retrieve clean OHLCV candlesticks for any asset.
+- **`calculate_indicators`**: On-demand computation of SMA (20/50/200), EMA (12/26), RSI (14), MACD, and Bollinger Bands.
+- **`get_instrument_info`**: Detailed instrument specifications (leverage, commission, hours, provider mappings).
+- **`sync_market_data`**: Automated delta-synchronization of local cache.
+- **`list_instruments`**: Browse all 234+ tradeable symbols.
+- **`get_cache_status`**: Inspect stored Parquet files, total bars, and disk usage.
+
+### Option B: Machine-Readable JSON CLI
+All CLI commands support `--json` for direct parsing by CLI-based agents:
+```bash
+marketdata get BTCUSD --timeframe 1d --tail 10 --json
+marketdata info AAPL --json
+marketdata status --json
+marketdata sync --timeframe 1h --json
+```
+
+---
+
+## 3. Server Cron Jobs & Automated Scheduling
 
 ### Running an Incremental Sync:
 ```bash
 # Sync hourly candles for all active markets
-python -m marketdata.data sync --timeframe 1h
+marketdata sync --timeframe 1h
 
 # Sync across all 6 timeframes (1d, 1h, 30m, 15m, 5m, 1m)
-python -m marketdata.data sync --all-timeframes
+marketdata sync --all-timeframes
 
 # Sync only crypto (24/7 markets)
-python -m marketdata.data sync --category crypto --timeframe 15m
+marketdata sync --category crypto --timeframe 15m
 ```
 
 ### Auto-Generating Server Cron & Systemd Files:
 ```bash
-python -m marketdata.data generate-cron
+marketdata generate-cron
 ```
 This generates:
 - `scripts/crontab.txt`: Ready to paste into `crontab -e`.
@@ -39,12 +88,12 @@ This generates:
 ### Running as a Background Daemon:
 ```bash
 # Run continuous background sync every 1 hour (3600 seconds)
-python -m marketdata.data daemon --interval-seconds 3600 --timeframe 1h
+marketdata daemon --interval-seconds 3600 --timeframe 1h
 ```
 
 ---
 
-## 3. Loading the Data in Python
+## 4. Loading the Data in Python
 
 ### On-Demand Loader (Auto-Cached):
 ```python
@@ -63,29 +112,9 @@ df_cl = get_historical_data("CL", timeframe="1d")
 df_eur = get_historical_data("EURUSD", timeframe="1d")
 ```
 
-### Direct Parquet Access (Pandas / Polars / DuckDB):
-```python
-import pandas as pd
-import polars as pl
-import duckdb
-
-# 1. Pandas
-df = pd.read_parquet("data/crypto/BTCUSD_1d.parquet")
-
-# 2. Polars
-df_pl = pl.read_parquet("data/stocks/AAPL_1d.parquet")
-
-# 3. DuckDB SQL
-res = duckdb.query("""
-    SELECT timestamp, close, volume 
-    FROM 'data/commodities/CL_1d.parquet' 
-    ORDER BY timestamp DESC LIMIT 10
-""").df()
-```
-
 ---
 
-## 4. Active Market Data Providers
+## 5. Active Market Data Providers
 
 | Priority | Plugin Name | Supported Asset Classes | Key Required? | Description |
 | :---: | :--- | :--- | :---: | :--- |
@@ -97,27 +126,3 @@ res = duckdb.query("""
 | **30** | **`tiingo`** | Stocks, Indices, Crypto | Optional | Clean adjusted historical daily equities and crypto (`TIINGO_API_KEY`). |
 | **40** | **`finnhub`** | Stocks, Forex, Crypto, Indices | Optional | Fast candle API (60 req/min, `FINNHUB_API_KEY`). |
 | **50** | **`alphavantage`** | Stocks, Forex, Crypto, Indices | Optional | US equities, forex, and crypto (`ALPHAVANTAGE_API_KEY`). |
-
----
-
-## 5. CLI Commands Quick Reference
-
-```bash
-# Check registered market data sources
-python -m marketdata.data sources
-
-# Check configured API keys status
-python -m marketdata.data keys
-
-# Check local cache storage and bar counts
-python -m marketdata.data status
-
-# List all tradeable instruments
-python -m marketdata.data list --category commodities
-
-# Show instrument details & mapped external tickers
-python -m marketdata.data info CL
-
-# Translate tickers
-python -m marketdata.data convert BTCUSD --provider yfinance
-```
