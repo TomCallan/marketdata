@@ -562,6 +562,30 @@ def _run_explorer_gui():
     root.mainloop()
 
 
+def _patch_pystray_left_click(icon) -> None:
+    """Make left-click open the native context menu, Tailscale-style.
+
+    pystray's Win32 backend opens the popup menu only on right-click; left-click
+    instead activates the menu's default item. We removed that default item, so
+    reroute left-click to the same popup path. If pystray's internals change,
+    fall back to today's right-click-only behavior.
+    """
+    try:
+        import pystray._win32 as _win32_mod
+        win32 = _win32_mod.win32
+        handlers = icon._message_handlers
+        original = handlers[win32.WM_NOTIFY]
+
+        def _on_notify(wparam, lparam):
+            if lparam in (win32.WM_LBUTTONUP, win32.WM_RBUTTONUP):
+                lparam = win32.WM_RBUTTONUP
+            return original(wparam, lparam)
+
+        handlers[win32.WM_NOTIFY] = _on_notify
+    except Exception as e:  # pragma: no cover - depends on pystray internals
+        logger.warning("Could not enable left-click tray menu; right-click only. %s", e)
+
+
 # ---------------------------------------------------------------------------
 # Tray Application Controller & Menu Engine
 # ---------------------------------------------------------------------------
@@ -835,6 +859,9 @@ class MarketDataTrayApp:
             title="MarketData - Universal Historical Data Downloader",
             menu=self.create_menu(),
         )
+
+        # Tailscale-style: left-click opens the same native menu as right-click.
+        _patch_pystray_left_click(self.icon)
 
         def on_ready(icon):
             icon.visible = True

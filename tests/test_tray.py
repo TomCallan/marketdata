@@ -69,5 +69,39 @@ class TestMarketDataTray(unittest.TestCase):
         self.assertIsNotNone(menu)
 
 
+class _FakeMessageHandlersIcon:
+    """Minimal stand-in for pystray.Icon exposing its _message_handlers dict."""
+
+    def __init__(self):
+        import pystray._win32 as _win32_mod
+        self._win32 = _win32_mod.win32
+        self._message_handlers = {self._win32.WM_NOTIFY: self._on_notify}
+
+    def _on_notify(self, wparam, lparam):
+        return (wparam, lparam)
+
+
+class TestPystrayLeftClickPatch(unittest.TestCase):
+    def test_left_click_routes_to_popup(self):
+        import pystray._win32 as _win32_mod
+        from marketdata.tray import _patch_pystray_left_click
+        win32 = _win32_mod.win32
+        icon = _FakeMessageHandlersIcon()
+        handler = icon._message_handlers[win32.WM_NOTIFY]
+
+        # Before the patch, left-click keeps its own message (activates default).
+        self.assertEqual(handler(0, win32.WM_LBUTTONUP), (0, win32.WM_LBUTTONUP))
+
+        _patch_pystray_left_click(icon)
+        handler = icon._message_handlers[win32.WM_NOTIFY]
+
+        # After the patch, left-click is rerouted to the popup (right-click) path.
+        self.assertEqual(handler(0, win32.WM_LBUTTONUP), (0, win32.WM_RBUTTONUP))
+        # Right-click still maps to itself.
+        self.assertEqual(handler(0, win32.WM_RBUTTONUP), (0, win32.WM_RBUTTONUP))
+        # Unrelated messages pass through untouched.
+        self.assertEqual(handler(0, 0x0300), (0, 0x0300))
+
+
 if __name__ == "__main__":
     unittest.main()
