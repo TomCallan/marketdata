@@ -68,6 +68,12 @@ class TestMarketDataTray(unittest.TestCase):
         menu = app.create_menu()
         self.assertIsNotNone(menu)
 
+    def test_tray_source_has_no_tkinter(self):
+        """Guard: the tray must never import tkinter."""
+        tray_path = Path(__file__).resolve().parent.parent / "marketdata" / "tray.py"
+        source = tray_path.read_text(encoding="utf-8")
+        self.assertNotIn("tkinter", source)
+
 
 class _FakeMessageHandlersIcon:
     """Minimal stand-in for pystray.Icon exposing its _message_handlers dict."""
