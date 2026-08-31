@@ -39,7 +39,7 @@ try:
 except ImportError:
     HAS_PYSTRAY = False
 
-from marketdata.config import BASE_DIR, DATA_DIR, LOGS_DIR, get_home_dir, get_user_config, set_user_config_value
+from marketdata.config import BASE_DIR, DATA_DIR, LOGS_DIR, get_user_config, set_user_config_value
 from marketdata.cron import CronSyncEngine, SyncReport
 from marketdata.registry import get_registry
 

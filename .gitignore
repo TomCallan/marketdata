@@ -46,6 +46,9 @@ data/*.parquet
 data/cache/
 data/tmp/
 
+# Runtime Logs (System Tray / Cron Sync)
+logs/
+
 # Testing & Coverage
 .pytest_cache/
 .coverage
