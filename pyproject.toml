@@ -16,6 +16,7 @@ dependencies = [
     "playwright>=1.40.0",
     "matplotlib>=3.10.9",
     "plotly>=7.0.0",
+    "pystray>=0.19.5",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +31,7 @@ fast = [
 [project.scripts]
 marketdata = "marketdata.cli:main"
 marketdata-mcp = "marketdata.mcp_server:run_mcp_server"
+marketdata-tray = "marketdata.tray:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]

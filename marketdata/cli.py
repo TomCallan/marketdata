@@ -687,6 +687,75 @@ def cmd_export_mappings(args):
         print("Export complete: 'ticker_mappings.json' and 'TICKER_CONVERSION_TABLE.md' updated.")
 
 
+def cmd_tray(args):
+    """Launch or manage the Windows System Tray notification popup icon."""
+    from marketdata.tray import (
+        MarketDataTrayApp,
+        show_data_explorer,
+        acquire_single_instance_mutex,
+        enable_startup,
+        disable_startup,
+        is_startup_enabled,
+        get_startup_command,
+    )
+    if args.install_startup:
+        if enable_startup():
+            if HAS_RICH and not args.json:
+                console.print("[bold green]Successfully registered MarketData Tray in Windows startup.[/bold green]")
+                console.print(f"Command: [cyan]{get_startup_command()}[/cyan]")
+            else:
+                print(f"Successfully registered MarketData Tray in Windows startup: {get_startup_command()}")
+        else:
+            print("Failed to register MarketData Tray in Windows startup.")
+        return
+
+    if args.remove_startup:
+        if disable_startup():
+            if HAS_RICH and not args.json:
+                console.print("[bold yellow]Successfully removed MarketData Tray from Windows startup.[/bold yellow]")
+            else:
+                print("Successfully removed MarketData Tray from Windows startup.")
+        else:
+            print("Failed to remove MarketData Tray from Windows startup.")
+        return
+
+    if args.status:
+        enabled = is_startup_enabled()
+        if args.json:
+            print(json.dumps({"startup_enabled": enabled, "startup_command": get_startup_command(), "data_dir": str(DATA_DIR)}))
+        elif HAS_RICH:
+            console.print(f"[bold cyan]Windows Startup Enabled:[/bold cyan] {'[bold green]Yes[/bold green]' if enabled else '[yellow]No[/yellow]'}")
+            console.print(f"[bold cyan]Startup Command:[/bold cyan]         [dim]{get_startup_command()}[/dim]")
+            console.print(f"[bold cyan]Data Directory:[/bold cyan]          [dim]{DATA_DIR}[/dim]")
+        else:
+            print(f"Windows Startup Enabled: {enabled}\nStartup Command: {get_startup_command()}\nData Directory: {DATA_DIR}")
+        return
+
+    if args.explore:
+        show_data_explorer()
+        return
+
+    mutex = acquire_single_instance_mutex()
+    if not mutex:
+        if HAS_RICH:
+            console.print("[yellow]MarketData Tray is already running in the Windows notification area.[/yellow]")
+        else:
+            print("MarketData Tray is already running in the Windows notification area.")
+        return
+
+    if HAS_RICH and not args.json:
+        console.print("[bold green]Starting MarketData System Tray in background...[/bold green]")
+        console.print("[dim]Look for the candlestick chart icon in your Windows taskbar notification area / overflow popup (^).[/dim]")
+
+    app = MarketDataTrayApp()
+    try:
+        app.run()
+    finally:
+        if mutex:
+            import ctypes
+            ctypes.windll.kernel32.CloseHandle(mutex)
+
+
 def main():
     base_parser = argparse.ArgumentParser(add_help=False)
     base_parser.add_argument("--json", action="store_true", help="Output machine-readable JSON format for AI agents")
@@ -771,6 +840,13 @@ def main():
     # export-mappings
     subparsers.add_parser("export-mappings", parents=[base_parser], help="Export conversion table and mappings")
 
+    # tray
+    p_tray = subparsers.add_parser("tray", parents=[base_parser], help="Launch or manage the Windows System Tray notification popup icon")
+    p_tray.add_argument("--install-startup", action="store_true", help="Enable MarketData tray to run on Windows startup and exit")
+    p_tray.add_argument("--remove-startup", action="store_true", help="Disable MarketData tray from running on Windows startup and exit")
+    p_tray.add_argument("--status", action="store_true", help="Print current startup registration status and exit")
+    p_tray.add_argument("--explore", action="store_true", help="Launch the Data Availability Explorer GUI directly")
+
     args = parser.parse_args()
 
     if args.command == "config":
@@ -801,6 +877,8 @@ def main():
         cmd_keys(args)
     elif args.command == "export-mappings":
         cmd_export_mappings(args)
+    elif args.command == "tray":
+        cmd_tray(args)
     else:
         parser.print_help()
 

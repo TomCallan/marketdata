@@ -126,3 +126,35 @@ df_eur = get_historical_data("EURUSD", timeframe="1d")
 | **30** | **`tiingo`** | Stocks, Indices, Crypto | Optional | Clean adjusted historical daily equities and crypto (`TIINGO_API_KEY`). |
 | **40** | **`finnhub`** | Stocks, Forex, Crypto, Indices | Optional | Fast candle API (60 req/min, `FINNHUB_API_KEY`). |
 | **50** | **`alphavantage`** | Stocks, Forex, Crypto, Indices | Optional | US equities, forex, and crypto (`ALPHAVANTAGE_API_KEY`). |
+
+---
+
+## 6. Windows Taskbar Notification Area / System Tray Popup App
+
+MarketData includes an ultra-lightweight, native background system tray icon for the Windows taskbar notification area / overflow popup (`^`):
+
+### Features:
+- **Real-Time Sync Status**: Inspect last sync duration, series updated, and new bars added.
+- **On-Demand Syncing**: Instantly trigger delta-syncs (Hourly, Daily, All Timeframes, or Force Full Refresh).
+- **Visual Data Availability Explorer**: Sleek GUI table with live search & category filters to inspect all cached Parquet datasets, row counts, disk usage, and open directly in Windows File Explorer.
+- **One-Click Path Copying**: Copy the active data directory path (`C:\...\data`) directly to the clipboard.
+- **Run on Windows Startup**: Toggle automatic startup on Windows boot (via `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`, launches windowless via `pythonw.exe`).
+- **Configurable Auto-Sync Scheduler**: Set periodic background delta-sync interval (Off, 15m, 1h, 4h, 24h).
+
+### Tray Commands:
+```bash
+# Launch the background tray application
+marketdata tray
+
+# Or launch directly with standalone script
+marketdata-tray
+
+# Manage Windows boot startup
+marketdata tray --install-startup
+marketdata tray --remove-startup
+marketdata tray --status
+
+# Launch the visual Data Availability Explorer directly
+marketdata tray --explore
+```
+
