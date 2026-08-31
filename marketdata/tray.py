@@ -66,12 +66,17 @@ MUTEX_NAME = "MarketData_Tray_SingleInstance_Mutex"
 def acquire_single_instance_mutex() -> Optional[int]:
     """Ensures only one instance of the tray app runs at a time."""
     kernel32 = ctypes.windll.kernel32
+    kernel32.CreateMutexW.restype = ctypes.c_void_p
+    kernel32.CreateMutexW.argtypes = [ctypes.c_void_p, ctypes.c_bool, ctypes.c_wchar_p]
+    kernel32.GetLastError.restype = ctypes.c_uint32
+    kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+
     mutex = kernel32.CreateMutexW(None, True, MUTEX_NAME)
     last_error = kernel32.GetLastError()
     ERROR_ALREADY_EXISTS = 183
     if last_error == ERROR_ALREADY_EXISTS:
         if mutex:
-            kernel32.CloseHandle(mutex)
+            kernel32.CloseHandle(ctypes.c_void_p(mutex))
         return None
     return mutex
 
@@ -832,6 +837,7 @@ class MarketDataTrayApp:
         )
 
         def on_ready(icon):
+            icon.visible = True
             startup_status = "enabled" if is_startup_enabled() else "disabled"
             logger.info("MarketData Tray is ready in Windows notification area.")
             try:
