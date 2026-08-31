@@ -59,7 +59,6 @@ marketdata tray
 marketdata tray --install-startup
 marketdata tray --remove-startup
 marketdata tray --status
-marketdata tray --explore
 
 # Generate Crontab and Systemd deployment templates
 marketdata generate-cron
