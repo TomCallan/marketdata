@@ -3,7 +3,7 @@
 Provides a lightweight, background tray icon in the Windows taskbar overflow area:
 - View real-time and last sync status & statistics
 - Trigger on-demand delta-syncs (1h, 1d, all timeframes, or force refresh)
-- Visual Data Availability & Cache Explorer GUI
+- Native Windows context menu on left- or right-click (menu-only, no GUI windows)
 - One-click copy of Market Data paths to clipboard
 - Open cache directory in Windows File Explorer
 - Toggle automatic start on Windows boot (via HKCU Run registry)
@@ -41,7 +41,6 @@ except ImportError:
 
 from marketdata.config import BASE_DIR, DATA_DIR, LOGS_DIR, get_home_dir, get_user_config, set_user_config_value
 from marketdata.cron import CronSyncEngine, SyncReport
-from marketdata.loader import DataLoader
 from marketdata.registry import get_registry
 
 # Setup file logging for tray app
@@ -82,7 +81,7 @@ def acquire_single_instance_mutex() -> Optional[int]:
 
 
 def copy_to_clipboard(text: str) -> bool:
-    """Copies text to the Windows system clipboard using Win32 API with Tkinter fallback."""
+    """Copies text to the Windows system clipboard using the Win32 API."""
     try:
         user32 = ctypes.windll.user32
         kernel32 = ctypes.windll.kernel32
@@ -124,18 +123,7 @@ def copy_to_clipboard(text: str) -> bool:
     except Exception:
         pass
 
-    # Tkinter fallback
-    try:
-        import tkinter as tk
-        root = tk.Tk()
-        root.withdraw()
-        root.clipboard_clear()
-        root.clipboard_append(text)
-        root.update()
-        root.destroy()
-        return True
-    except Exception:
-        return False
+    return False
 
 
 # ---------------------------------------------------------------------------
@@ -249,317 +237,7 @@ def create_tray_icon_image(state: str = "idle") -> Image.Image:
     return image
 
 
-# ---------------------------------------------------------------------------
-# Data Availability Explorer Window (Lightweight Tkinter GUI)
-# ---------------------------------------------------------------------------
-
-_explorer_window = None
-_explorer_lock = threading.Lock()
-
-
-def show_data_explorer():
-    """Opens or focuses the Data Availability & Cache Explorer window."""
-    global _explorer_window
-    with _explorer_lock:
-        if _explorer_window is not None:
-            try:
-                _explorer_window.lift()
-                _explorer_window.focus_force()
-                return
-            except Exception:
-                _explorer_window = None
-
-        thread = threading.Thread(target=_run_explorer_gui, daemon=True)
-        thread.start()
-
-
-def _run_explorer_gui():
-    global _explorer_window
-    import tkinter as tk
-    from tkinter import messagebox, ttk
-
-    root = tk.Tk()
-    _explorer_window = root
-    root.title("MarketData - Data Availability & Cache Explorer")
-    root.geometry("880x560")
-    root.minsize(720, 420)
-
-    # Windows 11 style palette
-    BG = "#0f172a"
-    CARD_BG = "#1e293b"
-    TEXT_COLOR = "#f8fafc"
-    MUTED_TEXT = "#94a3b8"
-    ACCENT = "#38bdf8"
-    SUCCESS = "#22c55e"
-    BORDER = "#334155"
-
-    root.configure(bg=BG)
-
-    # Set Tkinter icon if possible
-    try:
-        icon_img = create_tray_icon_image("idle")
-        import tempfile
-        tmp_ico = Path(tempfile.gettempdir()) / "marketdata_temp.ico"
-        icon_img.save(tmp_ico, format="ICO")
-        root.iconbitmap(str(tmp_ico))
-    except Exception:
-        pass
-
-    # Header Frame
-    header_frame = tk.Frame(root, bg=BG, padx=16, pady=12)
-    header_frame.pack(fill="x")
-
-    title_label = tk.Label(
-        header_frame,
-        text="Market Data Availability Explorer",
-        font=("Segoe UI", 14, "bold"),
-        fg=TEXT_COLOR,
-        bg=BG,
-    )
-    title_label.pack(side="left")
-
-    home_path = str(get_home_dir() / "data")
-    path_sub = tk.Label(
-        header_frame,
-        text=f"Cache Path: {home_path}",
-        font=("Segoe UI", 9),
-        fg=MUTED_TEXT,
-        bg=BG,
-    )
-    path_sub.pack(side="right", pady=4)
-
-    # Controls Frame (Search + Category Filter + Refresh)
-    ctrl_frame = tk.Frame(root, bg=CARD_BG, padx=12, pady=10, highlightbackground=BORDER, highlightthickness=1)
-    ctrl_frame.pack(fill="x", padx=16, pady=4)
-
-    tk.Label(ctrl_frame, text="Search:", font=("Segoe UI", 10, "bold"), fg=TEXT_COLOR, bg=CARD_BG).pack(side="left", padx=(0, 6))
-
-    search_var = tk.StringVar()
-    search_entry = tk.Entry(ctrl_frame, textvariable=search_var, font=("Segoe UI", 10), bg="#0f172a", fg=TEXT_COLOR, insertbackground=TEXT_COLOR, width=22)
-    search_entry.pack(side="left", padx=(0, 16))
-
-    tk.Label(ctrl_frame, text="Category:", font=("Segoe UI", 10, "bold"), fg=TEXT_COLOR, bg=CARD_BG).pack(side="left", padx=(0, 6))
-
-    category_var = tk.StringVar(value="All")
-    cat_options = ["All", "Crypto", "Forex", "Stocks", "Commodities", "Indices"]
-    cat_dropdown = ttk.Combobox(ctrl_frame, textvariable=category_var, values=cat_options, state="readonly", width=12)
-    cat_dropdown.pack(side="left", padx=(0, 16))
-
-    # Treeview Styling
-    style = ttk.Style()
-    style.theme_use("clam")
-    style.configure(
-        "Treeview",
-        background="#1e293b",
-        foreground="#f8fafc",
-        rowheight=26,
-        fieldbackground="#1e293b",
-        bordercolor="#334155",
-        font=("Segoe UI", 9),
-    )
-    style.configure(
-        "Treeview.Heading",
-        background="#334155",
-        foreground="#38bdf8",
-        font=("Segoe UI", 10, "bold"),
-        relief="flat",
-    )
-    style.map("Treeview", background=[("selected", "#0284c7")])
-
-    # Table Frame
-    table_frame = tk.Frame(root, bg=BG, padx=16, pady=6)
-    table_frame.pack(fill="both", expand=True)
-
-    columns = ("symbol", "category", "timeframe", "bars", "size", "start", "end", "file_path")
-    tree = ttk.Treeview(table_frame, columns=columns, show="headings", selectmode="browse")
-
-    tree.heading("symbol", text="Symbol", anchor="w")
-    tree.heading("category", text="Category", anchor="w")
-    tree.heading("timeframe", text="TF", anchor="center")
-    tree.heading("bars", text="Bars", anchor="e")
-    tree.heading("size", text="Size", anchor="e")
-    tree.heading("start", text="Start (UTC)", anchor="w")
-    tree.heading("end", text="End (UTC)", anchor="w")
-    tree.heading("file_path", text="File Location", anchor="w")
-
-    tree.column("symbol", width=110, anchor="w")
-    tree.column("category", width=90, anchor="w")
-    tree.column("timeframe", width=55, anchor="center")
-    tree.column("bars", width=90, anchor="e")
-    tree.column("size", width=85, anchor="e")
-    tree.column("start", width=140, anchor="w")
-    tree.column("end", width=140, anchor="w")
-    tree.column("file_path", width=180, anchor="w")
-
-    scrollbar_y = ttk.Scrollbar(table_frame, orient="vertical", command=tree.yview)
-    tree.configure(yscrollcommand=scrollbar_y.set)
-    tree.pack(side="left", fill="both", expand=True)
-    scrollbar_y.pack(side="right", fill="y")
-
-    # Status & Stats Footer
-    footer_frame = tk.Frame(root, bg=CARD_BG, padx=14, pady=10, highlightbackground=BORDER, highlightthickness=1)
-    footer_frame.pack(fill="x", padx=16, pady=(4, 12))
-
-    status_lbl = tk.Label(
-        footer_frame,
-        text="Loading cached data...",
-        font=("Segoe UI", 9),
-        fg=TEXT_COLOR,
-        bg=CARD_BG,
-    )
-    status_lbl.pack(side="left")
-
-    cached_records = []
-
-    def format_size(b: int) -> str:
-        for unit in ["B", "KB", "MB", "GB"]:
-            if b < 1024.0:
-                return f"{b:.1f} {unit}"
-            b /= 1024.0
-        return f"{b:.1f} TB"
-
-    def refresh_data():
-        nonlocal cached_records
-        loader = DataLoader()
-        info_list = loader.get_cache_status()
-        cached_records = sorted(info_list, key=lambda x: (x.category, x.symbol, x.timeframe))
-        apply_filter()
-
-    def apply_filter(*args):
-        query = search_var.get().strip().upper()
-        selected_cat = category_var.get().lower()
-
-        for item in tree.get_children():
-            tree.delete(item)
-
-        total_bars = 0
-        total_size = 0
-        match_count = 0
-
-        for r in cached_records:
-            if selected_cat != "all" and r.category.lower() != selected_cat:
-                continue
-            if query and query not in r.symbol.upper() and query not in r.category.upper():
-                continue
-
-            s_str = str(r.start)[:19] if r.start is not None else "N/A"
-            e_str = str(r.end)[:19] if r.end is not None else "N/A"
-            size_str = format_size(r.file_size_bytes)
-            
-            tree.insert(
-                "",
-                "end",
-                values=(
-                    r.symbol,
-                    r.category.capitalize(),
-                    r.timeframe,
-                    f"{r.row_count:,}",
-                    size_str,
-                    s_str,
-                    e_str,
-                    str(r.file_path),
-                ),
-            )
-            total_bars += r.row_count
-            total_size += r.file_size_bytes
-            match_count += 1
-
-        status_lbl.config(
-            text=f"Showing {match_count} of {len(cached_records)} cached files | {total_bars:,} total bars | {format_size(total_size)} disk space"
-        )
-
-    search_var.trace_add("write", apply_filter)
-    category_var.trace_add("write", apply_filter)
-
-    # Action Buttons
-    def open_selected_in_explorer():
-        selected = tree.selection()
-        if not selected:
-            messagebox.showinfo("No Selection", "Please select an instrument row first.", parent=root)
-            return
-        vals = tree.item(selected[0])["values"]
-        file_path = vals[7]
-        if Path(file_path).exists():
-            subprocess.run(["explorer", f"/select,{file_path}"])
-        else:
-            subprocess.run(["explorer", str(DATA_DIR)])
-
-    def copy_selected_symbol():
-        selected = tree.selection()
-        if not selected:
-            return
-        vals = tree.item(selected[0])["values"]
-        sym = vals[0]
-        copy_to_clipboard(sym)
-        messagebox.showinfo("Copied", f"Symbol '{sym}' copied to clipboard!", parent=root)
-
-    def copy_selected_path():
-        selected = tree.selection()
-        if not selected:
-            return
-        vals = tree.item(selected[0])["values"]
-        path_val = vals[7]
-        copy_to_clipboard(path_val)
-        messagebox.showinfo("Copied", f"Path copied to clipboard:\n{path_val}", parent=root)
-
-    btn_refresh = tk.Button(
-        ctrl_frame,
-        text="Refresh",
-        command=refresh_data,
-        font=("Segoe UI", 9, "bold"),
-        bg="#0284c7",
-        fg="#ffffff",
-        relief="flat",
-        padx=10,
-        pady=2,
-        cursor="hand2",
-    )
-    btn_refresh.pack(side="right")
-
-    btn_explore = tk.Button(
-        footer_frame,
-        text="Reveal in Explorer",
-        command=open_selected_in_explorer,
-        font=("Segoe UI", 9),
-        bg="#334155",
-        fg=TEXT_COLOR,
-        relief="flat",
-        padx=8,
-        pady=3,
-        cursor="hand2",
-    )
-    btn_explore.pack(side="right", padx=(6, 0))
-
-    btn_copy = tk.Button(
-        footer_frame,
-        text="Copy Path",
-        command=copy_selected_path,
-        font=("Segoe UI", 9),
-        bg="#334155",
-        fg=TEXT_COLOR,
-        relief="flat",
-        padx=8,
-        pady=3,
-        cursor="hand2",
-    )
-    btn_copy.pack(side="right", padx=(6, 0))
-
-    # Double click handler
-    def on_double_click(event):
-        open_selected_in_explorer()
-
-    tree.bind("<Double-1>", on_double_click)
-
-    # Initial load
-    refresh_data()
-
-    def on_close():
-        global _explorer_window
-        _explorer_window = None
-        root.destroy()
-
-    root.protocol("WM_DELETE_WINDOW", on_close)
-    root.mainloop()
+# (Data Availability Explorer GUI removed — menu-only tray per spec.)
 
 
 def _patch_pystray_left_click(icon) -> None:
@@ -622,17 +300,6 @@ class MarketDataTrayApp:
         r = self.last_sync_report
         return f"Last Sync: +{r.total_bars_added:,} bars, {r.updated_count} updated ({r.duration_seconds:.1f}s)"
 
-    def get_cache_summary_label(self) -> str:
-        """Returns summary of local Parquet cache."""
-        try:
-            loader = DataLoader()
-            info = loader.get_cache_status()
-            total_size = sum(i.file_size_bytes for i in info)
-            mb = total_size / (1024 * 1024)
-            return f"Cached Data: {len(info)} files ({mb:.1f} MB)"
-        except Exception:
-            return "Cached Data: Unavailable"
-
     def notify(self, title: str, message: str):
         """Displays a native Windows tray balloon/toast notification."""
         if self.icon:
@@ -688,33 +355,6 @@ class MarketDataTrayApp:
 
         t = threading.Thread(target=_worker, daemon=True)
         t.start()
-
-    def show_sync_details(self):
-        """Displays detailed pop-up with last sync results."""
-        import tkinter as tk
-        from tkinter import messagebox
-
-        if not self.last_sync_report:
-            msg = "No synchronization has been run in this session yet.\n\nClick 'Sync Data Now' in the tray menu to execute delta sync."
-        else:
-            r = self.last_sync_report
-            msg = (
-                f"MarketData Sync Report\n"
-                f"{'=' * 36}\n"
-                f"Timestamp:             {r.timestamp}\n"
-                f"Duration:              {r.duration_seconds:.2f} seconds\n"
-                f"Total Evaluated:       {r.total_series} series\n"
-                f"Updated:               {r.updated_count}\n"
-                f"Skipped (Closed):      {r.skipped_closed_count}\n"
-                f"Errors:                {r.error_count}\n"
-                f"Total New Bars Added:  {r.total_bars_added:,}\n"
-            )
-
-        root = tk.Tk()
-        root.withdraw()
-        root.attributes("-topmost", True)
-        messagebox.showinfo("MarketData - Last Sync Status", msg, parent=root)
-        root.destroy()
 
     def copy_data_path_action(self):
         """Copies active data folder path to clipboard and notifies."""
@@ -775,17 +415,9 @@ class MarketDataTrayApp:
     def create_menu(self) -> Menu:
         """Constructs the dynamic system tray context menu."""
         return Menu(
-            # Status Header (Clickable for full report)
-            MenuItem(
-                lambda item: self.get_status_label(),
-                action=lambda icon, item: self.show_sync_details(),
-                enabled=True,
-            ),
-            MenuItem(
-                lambda item: f"   {self.get_last_sync_label()}",
-                action=lambda icon, item: self.show_sync_details(),
-                enabled=True,
-            ),
+            # Status header (informational, non-interactive)
+            MenuItem(lambda item: self.get_status_label(), action=None, enabled=False),
+            MenuItem(lambda item: f"   {self.get_last_sync_label()}", action=None, enabled=False),
             Menu.SEPARATOR,
 
             # Sync Trigger Sub-Menu
@@ -800,9 +432,6 @@ class MarketDataTrayApp:
                 ),
             ),
 
-            # Data Availability Explorer GUI
-            MenuItem("Explore Data Availability...", lambda icon, item: show_data_explorer(), default=True),
-            MenuItem(lambda item: f"   {self.get_cache_summary_label()}", lambda icon, item: show_data_explorer()),
             Menu.SEPARATOR,
 
             # Clipboard & Folder Access
@@ -888,7 +517,6 @@ def main():
     parser.add_argument("--install-startup", action="store_true", help="Enable MarketData tray to run on Windows startup and exit")
     parser.add_argument("--remove-startup", action="store_true", help="Disable MarketData tray from running on Windows startup and exit")
     parser.add_argument("--status", action="store_true", help="Print current startup registration status and exit")
-    parser.add_argument("--explore", action="store_true", help="Launch the Data Availability Explorer GUI directly")
     args = parser.parse_args()
 
     if args.install_startup:
@@ -911,10 +539,6 @@ def main():
         print(f"Windows Startup Enabled: {enabled}")
         print(f"Startup Command:         {get_startup_command()}")
         print(f"Active Data Directory:   {DATA_DIR}")
-        return
-
-    if args.explore:
-        _run_explorer_gui()
         return
 
     # Single-instance check
