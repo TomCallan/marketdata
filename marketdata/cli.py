@@ -691,7 +691,6 @@ def cmd_tray(args):
     """Launch or manage the Windows System Tray notification popup icon."""
     from marketdata.tray import (
         MarketDataTrayApp,
-        show_data_explorer,
         acquire_single_instance_mutex,
         enable_startup,
         disable_startup,
@@ -729,10 +728,6 @@ def cmd_tray(args):
             console.print(f"[bold cyan]Data Directory:[/bold cyan]          [dim]{DATA_DIR}[/dim]")
         else:
             print(f"Windows Startup Enabled: {enabled}\nStartup Command: {get_startup_command()}\nData Directory: {DATA_DIR}")
-        return
-
-    if args.explore:
-        show_data_explorer()
         return
 
     mutex = acquire_single_instance_mutex()
@@ -845,7 +840,6 @@ def main():
     p_tray.add_argument("--install-startup", action="store_true", help="Enable MarketData tray to run on Windows startup and exit")
     p_tray.add_argument("--remove-startup", action="store_true", help="Disable MarketData tray from running on Windows startup and exit")
     p_tray.add_argument("--status", action="store_true", help="Print current startup registration status and exit")
-    p_tray.add_argument("--explore", action="store_true", help="Launch the Data Availability Explorer GUI directly")
 
     args = parser.parse_args()
 
