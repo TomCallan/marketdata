@@ -15,6 +15,7 @@ import ctypes
 from dataclasses import dataclass
 import datetime
 import json
+import logging
 import os
 from pathlib import Path
 import subprocess
@@ -23,6 +24,11 @@ import threading
 import time
 from typing import List, Optional
 import winreg
+
+# Ensure package root is in sys.path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from PIL import Image, ImageDraw
 
@@ -37,6 +43,15 @@ from marketdata.config import BASE_DIR, DATA_DIR, LOGS_DIR, get_home_dir, get_us
 from marketdata.cron import CronSyncEngine, SyncReport
 from marketdata.loader import DataLoader
 from marketdata.registry import get_registry
+
+# Setup file logging for tray app
+TRAY_LOG_FILE = LOGS_DIR / "tray.log"
+logging.basicConfig(
+    filename=str(TRAY_LOG_FILE),
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger("marketdata.tray")
 
 # Windows Registry & App Constants
 STARTUP_REG_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
@@ -797,8 +812,11 @@ class MarketDataTrayApp:
     def run(self):
         """Starts background daemon and runs tray loop."""
         if not HAS_PYSTRAY:
+            logger.error("'pystray' and 'pillow' are required to run the tray application.")
             print("Error: 'pystray' and 'pillow' are required to run the tray application.")
             sys.exit(1)
+
+        logger.info("Initializing MarketData Tray Application...")
 
         # Start auto-sync worker
         self.auto_sync_thread = threading.Thread(target=self.auto_sync_loop, daemon=True)
@@ -813,15 +831,19 @@ class MarketDataTrayApp:
             menu=self.create_menu(),
         )
 
-        # Initial balloon hint
-        startup_status = "enabled" if is_startup_enabled() else "disabled"
-        self.notify(
-            "MarketData Background Tray Running",
-            f"Active data path: {DATA_DIR}\nStartup on boot: {startup_status}",
-        )
+        def on_ready(icon):
+            startup_status = "enabled" if is_startup_enabled() else "disabled"
+            logger.info("MarketData Tray is ready in Windows notification area.")
+            try:
+                icon.notify(
+                    f"Active data path: {DATA_DIR}\nStartup on boot: {startup_status}",
+                    "MarketData Background Tray Running",
+                )
+            except Exception as e:
+                logger.warning(f"Could not display initial notification balloon: {e}")
 
         # Main blocking tray loop
-        self.icon.run()
+        self.icon.run(setup=on_ready)
 
 
 # ---------------------------------------------------------------------------
@@ -865,12 +887,15 @@ def main():
     # Single-instance check
     mutex = acquire_single_instance_mutex()
     if not mutex:
+        logger.warning("Another instance of MarketData Tray is already running.")
         print("MarketData Tray is already running in the Windows notification area.")
         return
 
     app = MarketDataTrayApp()
     try:
         app.run()
+    except Exception as e:
+        logger.exception(f"Unhandled error in tray app: {e}")
     finally:
         if mutex:
             ctypes.windll.kernel32.CloseHandle(mutex)
