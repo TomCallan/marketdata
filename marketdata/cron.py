@@ -121,6 +121,7 @@ class CronSyncEngine:
         overlap_bars: int = 2,
         check_market_hours: bool = True,
         force: bool = False,
+        progress_callback=None,
     ) -> SyncReport:
         """
         Execute smart incremental sync for specified categories and timeframes.
@@ -143,8 +144,32 @@ class CronSyncEngine:
             total_series=len(instruments) * len(timeframes),
         )
 
+        total_items = len(instruments) * len(timeframes)
+        processed = 0
+        canceled = False
+
         for tf in timeframes:
+            if canceled:
+                break
             for inst in instruments:
+                if canceled:
+                    break
+                processed += 1
+                if progress_callback:
+                    if progress_callback(processed, total_items, inst.symbol, tf) is False:
+                        canceled = True
+                        report.error_count += 1
+                        report.results.append(
+                            SyncResult(
+                                symbol=inst.symbol,
+                                category=inst.category,
+                                timeframe=tf,
+                                status="error",
+                                message="Sync canceled by user",
+                            )
+                        )
+                        break
+
                 # 1. Market hours check
                 if check_market_hours and not force and not is_market_open(inst, now_utc):
                     report.skipped_closed_count += 1
